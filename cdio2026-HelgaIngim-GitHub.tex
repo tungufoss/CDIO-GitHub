@@ -1,0 +1,74 @@
+\documentclass[11pt]{cdio}
+%% Setup citation system
+\usepackage[backend=biber, date=short, maxcitenames=2, bibencoding=utf8, style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}% needed for style=apa
+%\renewcommand*{\bibfont}{\referencefont}
+\setlength{\bibitemsep}{\baselineskip}
+\setlength{\bibhang}{0pt}
+
+\addbibresource{references.bib}% file with reference library
+
+\usepackage{tikz}
+\usetikzlibrary{fit,matrix,backgrounds}
+
+\graphicspath{{graphics/}{Graphics/}{./}}%You can store your images in these locations
+
+\title{Pull Requests as Assessment Infrastructure in CDIO Project Courses}
+
+\footer{Proceedings of the $22^\text{nd}$ International CDIO Conference, hosted by\\University of Liverpool, Liverpool, United Kingdom, June 22--25, 2026}
+
+\setuphyperref{}%enable clickable links
+\begin{document}
+\makecdiotitle{
+  \author{Helga Ingimundardóttir}
+  \affiliation{Industrial Engineering, University of Iceland}
+  % https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+}
+
+\section{Abstract}
+Team-based, open-ended project work is central to CDIO-aligned engineering education, yet assessing professional collaboration, individual contribution, and reproducibility remains challenging. This paper presents a CDIO Implementation case in which GitHub Classroom is used not as a programming topic, but as collaboration and assessment infrastructure in industrial engineering undergraduate and mixed undergraduate/graduate courses, including Business Intelligence and Information Engineering.
+The implementation centers on making pull requests (PRs) the primary unit of feedback, review, and assessment. Students are required to author or clearly co-author PRs, participate in substantive peer review with required approvals prior to merging, and respond explicitly to instructor comments within PR threads. Assessment emphasizes responsiveness to feedback, quality of peer review, reproducibility through documentation, and visible individual participation within team deliverables. Unresolved feedback from project cycles is carried forward into capstone evaluation, reinforcing accountability and continuity across the semester.
+An early design using separate repositories for each project cycle resulted in repeated onboarding, context loss, and high instructional overhead. The redesigned approach adopts one persistent repository per team across the semester, enabling cumulative iteration, traceability of decisions, and efficient final evaluation. To reduce cognitive load, instruction in GitHub collaboration practices was relocated to a prerequisite Information Engineering course, allowing subsequent courses to employ the tool authentically without concurrent tool training.
+Despite initial student resistance related to perceived overhead and redundancy with informal communication channels, graduated students later reported this practice as highly valuable for workplace readiness. The paper focuses on design decisions, trade-offs, and assessment mechanisms rather than learning-effect claims, offering transferable insights for CDIO programs seeking to align assessment with professional collaboration practices.
+\section{Keywords}
+Pull requests, GitHub Classroom, assessment infrastructure, team-based learning; professional competence,
+CDIO standards: 5, 7, 8, 11
+
+% The implementation primarily addresses CDIO Standards 7, 8, and 11. Pull-request-based workflows integrate disciplinary, interpersonal, and professional skills within authentic project activity (Standard 7), while review-driven iteration and peer engagement support active, experiential learning (Standard 8). Assessment is grounded in observable artifacts that make individual contribution, collaboration quality, and responsiveness to feedback visible within team outputs (Standard 11). The approach additionally supports Design–Implement experiences (Standard 5) through sustained, iterative project work enabled by persistent repositories.
+
+%%%%%%% DO NOT REMOVE %%%%%%%%%%%%%%%
+\newpage{}% Title, authors, abstract, and keywords go on the first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{body}
+
+\section{ACKNOWLEDGEMENTS}
+The author received no financial support for this work. The author thanks the students who participated in these courses for their engagement and for trusting a demanding collaboration process. While learning professional GitHub workflows is challenging, the students' commitment demonstrated the long-term value of these practices.
+
+%\section{REFERENCES}
+\setlength\bibitemsep{2pt}% Word template is single spaced, but it looks like there is extra space between items in the official implementation --foley
+
+\printbibliography{}
+
+\section{Biographical Information}
+\textbf{\textit{Helga Ingimundardóttir}} is an Assistant Professor of Industrial Engineering at the University of Iceland. Since 2023, her teaching and research have focused on optimization, mathematical modeling, data science, artificial intelligence, and industry-engaged learning in data-intensive contexts. She is a member of the Teaching Academy of the public universities in Iceland (2024).
+Helga brings extensive industry experience across research and applied AI: as a Research Scientist at \emph{deCODE Genetics}, she designed long-read sequencing analysis pipelines and co-authored papers in \emph{Nature Genetics} and \emph{Genome Biology}; as a Data Scientist at \emph{CCP Games}, she helped develop real-time recommendation services for \emph{EVE Online}; as Head of AI Research at \emph{Travelshift}, she led large-scale trip-planning optimization; and earlier, as a Computational Engineer in R\&D at \emph{Valka} (now JBT Marel), she developed X-ray-based optimization methods for automated fish processing.
+She holds a PhD and MSc in Computational Engineering and a BSc in Mathematics from the University of Iceland, as well as a graduate diploma in Teaching Studies for Higher Education.
+
+\subsection{Corresponding author}
+\CorrespondingAuthorBlock{
+Helga Ingimundardóttir\\
+University of Iceland\\
+School of Engineering and Natural Sciences\\
+Faculty of Industrial Engineering, Mechanical Engineering and Computer Science\\
+VR-II, Hjarðarhagi 6\\
+107 Reykjavík, ICELAND\\}
+{helgaingim@hi.is}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: xetex
+%%% End:
