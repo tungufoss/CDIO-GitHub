@@ -1,91 +1,191 @@
 \section{Introduction and Motivation}
 % Frame the core assessment problem: large, team-based, open-ended CDIO project courses struggle with assessing collaboration, individual contribution, responsiveness to feedback, and reproducibility. Position GitHub Classroom not as a teaching topic, but as collaboration and assessment infrastructure. Explicitly state this paper complements, but does not repeat, prior work on industry-engaged assessment in Business Intelligence.
-TODO
-% - State the assessment challenge clearly and concisely
-% - Explain why infrastructure (not rubrics alone) matters
-% - Clarify scope: implementation case, not learning-effect research
-% - Briefly preview the PR-centric assessment design
+
+Large, team-based projects--whether open-ended or tightly scoped--pose persistent assessment challenges in CDIO-aligned curricula. Instructors must evaluate not only technical outcomes but also how teams coordinate work, distribute responsibilities, maintain a shared understanding of evolving work, respond to feedback, and hand over results in reproducible, trustworthy ways (\cite{Subheesh2020}). Conventional end-product artifacts often conceal individual contribution and compress decision-making into terminal deliverables, limiting visibility into collaboration quality, shared responsibility, and responsiveness to prior feedback.
+
+In this implementation, GitHub Classroom is positioned as \emph{collaboration and assessment infrastructure}, not as a programming topic or an autograding platform. While GitHub Classroom is widely adopted in computer science for distributing assignments and enabling automated tests (\cite{Hecht2022,GithubDocsAutograding}), our context typically lacks stable unit-testable specifications for complex analytic work; autograding is therefore not central. Instead, assessment is anchored in observable interaction traces afforded by GitHub: (i) \emph{Issues} for task/idea tracking and discussion, (ii) \emph{branches} for isolating work, and (iii) \emph{pull requests (PRs)} for structured review, discussion, and handover (\cite{EarthDataScienceCollab,TuringRDSCollab}).
+
+We implement PRs as the primary unit of feedback and evaluation in team-based courses where students divide tasks yet must keep every member aligned. PR threads and diffs externalize intent and change scope; line comments and review statuses create a durable record of critique and response; and required approvals operationalize shared accountability before merge. These practices are standard in industry software development and, when adapted to coursework, make interpersonal and professional behaviors visible within normal project activity (\cite{EarthDataScienceCollab,TuringRDSCollab}).
+
+We contrast PR-based \emph{in-situ} handover with conventional peer assessment conducted only \emph{after} project completion. The literature notes value in peer assessment (formative feedback, feedback literacy) alongside persistent limitations (bias, superficiality, reluctance to critique, challenges in attributing effort). Here, responsibility for understanding teammates' work is assessed \emph{during} development through situated review and explicit responses to comments, not solely via end-stage ratings (\cite{Fleckney2024,Sridharan2023,Senkpeil2019,ONeill2020}).
+
+Our scope is an implementation case: we present design choices and trade-offs that improved visibility, accountability, and continuity; we make no causal claims. The design requires students to author or clearly co-author PRs, conduct substantive peer review with approvals prior to merge, and respond explicitly to instructor comments. Assessment emphasizes responsiveness to feedback, review quality, and reproducibility/handover (clear READMEs, run instructions, experiment summaries). To support continuity, each team works in a \emph{single persistent repository} across the semester, replacing earlier multi-repository cycles that fragmented context and increased onboarding costs.
 
 \section{Course Context and Curricular Placement}
 % Describe the institutional context and the two-course sequence: (1) Information Engineering as a prerequisite focused on industry-relevant technical and collaboration skills (SQL, data visualization, GitHub), (2) Business Intelligence and other advanced courses where GitHub is used "naturally" in complex project work. Emphasize decoupling tool learning from cognitively heavy project work.
-TODO
-% - Describe student population (UG / mixed UG-G)
-% - Explain why GitHub is introduced earlier in the curriculum
-% - Clarify that GitHub proficiency is assumed, not taught, in later courses
-% - Briefly connect this to CDIO integrated learning goals
+The implementation spans two courses in the Industrial Engineering curriculum with intentionally different roles. The first is a second-year, mandatory undergraduate course in Information Engineering (IE). The second is a Business Intelligence (BI) elective offered at third-year undergraduate and first-year master's level. Both courses are designed primarily for Industrial Engineering students, with regular enrollment from adjacent programs.
+
+In IE, project work is smaller in scope and focused on consolidating foundational skills (e.g., SQL, data visualization, structured analysis) alongside explicit introduction to GitHub collaboration practices (issues for task tracking, branches for isolated work, and pull requests for review and handover).
+
+In BI, teams undertake larger, data-intensive projects organized in thematic cycles that accumulate into a final project. GitHub is used as the primary collaboration environment with an emphasis on \emph{iterative PR-based workflows} across a \emph{single persistent team repository}. This iterative feature--revisiting and resolving feedback across successive PRs--is a central design element in BI but is not feasible within the earlier course's scope and pacing. Proficiency with GitHub is assumed in BI, allowing students to apply the workflow within complex project work rather than learning the tool in parallel.
 
 \section{Initial Implementation and Identified Limitations}
 % Describe the initial GitHub Classroom design using separate repositories per project cycle. Explain why this caused repeated onboarding, loss of context, fragmented feedback, and high instructor overhead. Position this section as an honest reflection leading to redesign.
-TODO
 % - Describe original multi-repo-per-cycle setup
 % - Explain practical consequences for students and instructor
 % - Avoid framing as failure; frame as learning and iteration
 
+The multi-repository approach in the prerequisite course had practical limitations, though not primarily for students. Each cycle was intentionally independent, and the main student-facing cost was limited to accepting and cloning a new repository. For instructors, however, each repository required reconfiguration of explicit GitHub rules (e.g., enforcing pull-request-based merges, requiring multiple reviewers, and re-requesting approval after changes), increasing setup overhead across cycles.
+
+More importantly, the separation of repositories meant that instructor feedback was effectively \emph{non-binding}: there was no structural guarantee that students would revisit, resolve, or even read feedback from one cycle before moving on to the next. While this was acceptable for skills-focused, self-contained assignments, it limited the extent to which feedback could be carried forward and acted upon. This constraint motivated the exploration of persistent repositories and PR-based continuity in courses featuring sustained project work.
+
+By contrast, the single persistent repository in the BI course supported continuity: iterative PRs, a shared backlog of issues, and cumulative documentation stayed visible throughout the semester. This made PR-based assessment more efficient—previous comments and unresolved items were easy to locate, and diffs between review rounds highlighted exactly what had changed.
+
+We do not frame the multi-repo setup as a failure. It functioned well for smaller, skills-focused cycles in IE and remains appropriate for tightly scoped work. However, the limitations observed in visibility, carry-over of feedback, and instructor effort informed the redesign choices presented in subsequent sections.
+
 \section{Design Rationale: Pull Requests as Assessment Infrastructure}
 % Present the core design decision: using pull requests (PRs) as the central unit of feedback, review, and assessment. Argue that PRs make collaboration, decision-making, and responsibility visible and assessable.
-TODO
 % - Explicitly define PRs as assessment artifacts
 % - Explain why PRs are better than commits, reports, or presentations alone
 % - Connect to professional engineering practice (lightly, no industry claims)
 
+We treat \emph{pull requests (PRs)} as assessment artifacts. A PR packages a coherent change set with its context: motivation, scope, diffs, discussion, and the final decision to merge or not. Because PRs bind the technical proposal (the change) to the social process (review, questions, revisions, approval), they make collaboration, decision-making, and responsibility observable and therefore assessable.
+Compared to commits, reports, or presentations, PRs expose the behaviours we intend to assess:
+\begin{description}
+    \item[Traceable intent and scope:] PR descriptions and linked issues clarify \emph{why} a change is needed and \emph{what} it is intended to do, beyond a single commit message.
+    \item[Situated peer review:] Line-level comments and threaded discussions capture actionable critique and responses \emph{in context}, rather than as retrospective summaries.
+    \item[Accountability before integration:] Required approvals and status checks make shared responsibility explicit \emph{prior} to merge, not only after delivery.
+    \item[Reproducible handover:] PRs bundle run instructions, experiment summaries, and documentation with the change, enabling reviewers (peers and instructor) to reproduce results.
+    \item[Individual visibility within team work:] Authorship, co-authorship, and review history provide concrete evidence of participation that does not rely on self-report.
+\end{description}
+
+This PR-centric design aligns assessment with professional collaboration practice without making ``industry mimicry'' the goal. The workflow we require is minimal and course-agnostic: small, well-scoped branches; focused PRs; at least two substantive peer reviews; explicit responses to review comments; and merge only after approval. Instructors comment directly on PRs; unresolved items remain open and carry forward into subsequent work, ensuring that feedback is visible, actionable, and auditable over time.
+
+In short, PRs transform assessment from end-product inspection to evaluation of the \emph{process that produces the product}. They make understanding, judgement, and teamwork \emph{explicitly assessable outcomes}, while preserving flexibility in methods and domains.
+
+
 \subsection{Persistent Team Repositories}
 % Explain the redesign choice to use one persistent repository per team across the entire semester. Emphasize cumulative iteration, traceability, and efficient final assessment.
-TODO
+
 % - Compare to prior multi-repo approach
 % - Explain benefits for documentation, handover, and capstone review
 % - Mention reduced instructor re-review effort
 
+We adopt a \emph{single persistent repository per team} for the entire semester in courses with sustained project work. This replaces the earlier multi-repository approach used for independent cycles.
+Compared to issuing a new repository each cycle, a persistent repository:
+\begin{description}
+    \item[Supports cumulative iteration:] all Issues, branches, and PRs remain in one place, so decisions and unresolved items carry forward naturally between cycles.
+    \item[Improves traceability:] history is continuous, making it straightforward to locate prior discussions, link new work to earlier feedback, and audit how concerns were addressed.
+    \item[Strengthens documentation and handover:] a living \texttt{README}, run instructions, and experiment summaries evolve with the project rather than being recreated per cycle.
+    \item[Enables efficient capstone review:] instructors can re-open or reference earlier PRs and use diffs to verify that specific comments have been resolved, without re-reading entire codebases.
+    \item[Reduces re-review effort:] deep feedback given once remains visible; subsequent reviews focus on changes since the last round and on closure of previously flagged items.
+\end{description}
+
+Persistent repositories thus align day-to-day collaboration with assessable continuity: students see feedback as work-to-be-done in the same space where they implement it, and instructors evaluate progress incrementally through successive PRs rather than across fragmented repositories.
+
 \subsection{Pull Request Requirements and Individual Accountability}
 % Detail concrete assessment expectations tied to PR activity: each student must author or clearly co-author PRs, respond to feedback, and make their contribution visible.
-TODO
 % - Describe how PR authorship/co-authorship is evaluated
 % - Explain expectations for responding to instructor and peer comments
 % - Clarify that visibility, not volume of code, is assessed
 
+Assessment expectations are tied directly to observable activity in PRs, which function as the primary artifacts for evidencing individual contribution within team work. Each student is required to either author PRs or be clearly identifiable as a co-author through substantive participation in the PR discussion and revision process. Co-authorship is established through visible engagement, such as proposing design choices, responding to review comments, and contributing follow-up commits attached to the PR.
+
+Assessment places particular emphasis on \emph{responsiveness to feedback}. Students are expected to engage actively with both peer and instructor comments within PR threads by acknowledging questions, clarifying intent, and making revisions where appropriate. Responses must be explicit and traceable in the PR discussion; silent changes or off-platform clarification do not satisfy this requirement. Unresolved questions or comments remain part of the assessment record and may carry forward into subsequent evaluation.
+
+Individual accountability is assessed through \emph{visibility of contribution}, not through the volume of code produced. Small, well-scoped PRs that are well-documented and thoughtfully reviewed are valued over large, opaque changes. Participation in peer review, including asking clarifying questions about teammates' work, is explicitly recognized as a form of contribution, reinforcing shared responsibility for understanding the entire project rather than isolated subcomponents.
+
+Together, these requirements allow individual engagement to be assessed within collective deliverables without fragmenting team outcomes. PR activity provides concrete evidence of each student's role in shaping, scrutinizing, and refining the team's work, supporting fair assessment aligned with professional collaboration practices.
+
 \subsection{Peer Review as Shared Responsibility}
 % Describe the requirement for peer review and multiple approvals before merge. Explain how review quality is graded and superficial approvals are penalized. Frame peer review as professional and pedagogical accountability.
-TODO
-% - Describe minimum review expectations (e.g., two meaningful reviews)
+% - Describe minimum review expectations (e.g. two meaningful reviews)
 % - Explain how poor review quality affects assessment
 % - Show how this reduced siloed work and errors over time
 
+Peer review is a mandatory and assessable component of project work and is framed as a shared responsibility for the quality and coherence of the team's output. Before a PR can be merged into the main branch, it must receive a minimum of two \emph{substantive} peer reviews from team members other than the author. Reviews are expected to engage with the content of the PR by examining assumptions, implementation choices, documentation, and reproducibility, rather than by offering cursory approval.
+
+The \emph{quality of peer review} is explicitly assessed. Superficial approvals (e.g.\ brief affirmations without analysis or comments that do not engage with the change) are not accepted as evidence of meaningful review and negatively affect assessment. Reviewers are expected to identify potential issues, ask clarifying questions, and suggest improvements where relevant. Failure to detect evident errors or inconsistencies in a teammate's contribution is treated as a lapse in shared responsibility, not only as the author's oversight.
+
+Framing peer review as an assessed responsibility shifts collaboration away from siloed task execution toward collective ownership of the project. Students are encouraged to ask questions in PR threads when they do not understand a teammate's work, reinforcing the expectation that all members are accountable for the entire project, not only their assigned parts. Over time, this approach reduced isolated work and undetected errors, as teams learned that unreviewed or insufficiently reviewed contributions affected both individual and collective assessment outcomes.
+
+By embedding peer review directly in the PR workflow and grading its quality, assessment aligns with both professional collaboration norms and pedagogical goals. Peer review becomes a continuous quality assurance mechanism that supports learning through dialogue and iteration, while providing instructors with clear, traceable evidence of how teams monitor, challenge, and refine their work.
+
 \section{Assessment Focus: Reproducibility, Handover, and Responsiveness}
-% Explain what is assessed beyond correctness: reproducibility, documentation, experiment summaries, and clarity of intent. Emphasize that understanding others' work is required—and asking questions is explicitly encouraged.
-TODO
+% Explain what is assessed beyond correctness: reproducibility, documentation, experiment summaries, and clarity of intent. Emphasize that understanding others' work is required--and asking questions is explicitly encouraged.
+
 % - Describe README expectations and reproducibility checks
 % - Explain how students' questions in PRs are treated positively
 % - Connect to CDIO system thinking and shared responsibility
 
+Assessment extends beyond technical correctness to emphasize reproducibility, documentation quality, clarity of intent, and responsiveness to feedback. These dimensions reflect expectations in collaborative engineering work and align assessment with system-level responsibility rather than isolated task completion.
+
+Reproducibility is assessed through project documentation maintained in the repository, with particular emphasis on a clear and evolving \texttt{README}. Teams are expected to document the purpose of each contribution, summarize experiments or analytical steps, and provide concise run instructions sufficient for a teammate (or the instructor) to reproduce results. Documentation is evaluated as part of PRs, not as a separate deliverable, reinforcing its role as an integral component of the work.
+
+Handover is operationalized through pull requests. Each PR is expected to communicate intent and scope clearly, enabling reviewers to understand what was changed, why, and how it fits into the broader project. This makes the PR itself a handover moment between team members rather than a private implementation step.
+
+Understanding others' work is explicitly required. Students are encouraged to ask questions directly in PR threads when parts of a contribution are unclear to them. Such questions are treated as positive evidence of engagement and shared responsibility, not as signs of weakness. Assessment rewards visible efforts to clarify assumptions, surface uncertainties, and resolve misunderstandings within the team.
+
+Together, these criteria foreground system thinking and collective accountability. Students are assessed on their ability to contribute work that others can understand, review, reproduce, and extend, reinforcing the expectation that responsibility in team-based projects extends beyond individual task ownership to the coherence and integrity of the full system.
+
 \section{Feedback Carry-Forward and Capstone Re-Evaluation}
 % Describe how unresolved PR feedback carries forward into capstone evaluation. Explain that unchanged issues receive unchanged marks, enabling faster summative assessment and reinforcing accountability.
-TODO
+
 % - Describe the cyclic project structure briefly
 % - Explain how initial deep review enables faster final review
 % - Emphasize developmental (not punitive) intent
 
+Project work is organized in thematic cycles that accumulate into a final capstone deliverable. Instructor feedback is provided primarily through pull requests (PRs) during each cycle, focusing on methodological soundness, documentation, and clarity of intent. Importantly, this feedback is not treated as closed at the end of a cycle.
+
+Unresolved PR comments and questions explicitly \emph{carry forward} into the capstone phase. When teams submit their final work, evaluation checks whether issues previously raised have been addressed. If specific concerns remain unchanged, the corresponding assessment outcome remains unchanged as well. This policy makes feedback binding without requiring resubmission of earlier work and signals that responsibility for addressing feedback persists across the semester.
+
+This approach enables efficient summative assessment. Because earlier PR reviews already document expected revisions and rationale, instructors can focus final evaluation on whether identified issues were resolved, using PR diffs to verify changes rather than re-reviewing entire codebases or reports. The assessment thus builds on prior formative review rather than resetting at the capstone stage.
+
+The intent of carry-forward evaluation is explicitly developmental. Early iterations allow exploration and partial solutions, provided limitations are acknowledged and discussed. The capstone rewards teams that revisit unresolved issues, integrate feedback, and deliver coherent, reproducible outcomes. In this way, assessment reinforces iterative improvement and accountability while preserving space for learning during earlier cycles.
+
 \section{Student Response and Adaptive Refinement}
 % Acknowledge initial student resistance due to perceived overhead and duplication of informal communication tools. Describe instructional responses: grading review quality, modelling feedback, and relocating GitHub onboarding earlier in the curriculum. Note later positive graduate feedback.
-TODO
+
 % - Describe common student objections
 % - Explain how behaviours shifted over time
 % - Include graduate reflections as qualitative validation (no causal claims)
 
+Initial student response highlighted perceived overhead and duplication of existing team communication. Common objections included: (i) ``we already discuss work on Messenger,'' (ii) PRs felt like extra busywork, and (iii) review requirements were seen as slowing progress. Resistance was strongest early on, particularly around moving discussion into Issues/PRs and writing explicit responses to comments.
+
+Instructional adjustments targeted behavior rather than tool mastery. Review quality was graded, making superficial approvals visible in assessment; instructors modeled effective review comments (clarifying assumptions, requesting evidence, pointing to reproducible checks); and GitHub onboarding was relocated earlier in the curriculum so that later courses could assume fluency. Over successive offerings, students' behaviors shifted: PRs became smaller and better scoped, documentation improved, and review threads showed more substantive questioning and revision.
+
+Graduate reflections later described the approach as valuable for workplace readiness. Alumni reported that visible review practices, documentation habits, and explicit handover prepared them to collaborate in professional teams. While these reflections are qualitative and context-specific, they informed continued use of the PR-centric design and reinforced the decision to assess collaboration through observable artifacts rather than end-stage self-report.
+
 \section{Alignment with CDIO Standards}
 % Explicitly map the implementation to CDIO Standards 7, 8, and 11, with partial alignment to Standard 5. Keep this concise and implementation-focused.
-TODO
+
 % - Summarize alignment in prose (no repetition of theory)
 % - Keep emphasis on assessment and active learning
 
+This implementation primarily aligns with CDIO Standards 7, 8, and 11, with partial alignment to Standard 5.
+
+\begin{description}
+    \item[Standard 7 (Integrated Learning Experiences):] PR-centred workflows integrate technical work with interpersonal competencies: articulating intent, reviewing peers' contributions, documenting assumptions, and coordinating handover. These behaviours are assessed within normal project activity, not as separate exercises.
+    \item[Standard 8 (Active Learning):] Students engage in iterative cycles of proposing changes, receiving critique, revising, and merging. Peer review and instructor feedback occur \emph{in situ} on PRs, supporting learning through dialogue and authentic practice.
+    \item[Standard 11 (Learning Assessment):] Assessment is grounded in observable artifacts: PR authorship/co-authorship, review quality, responsiveness to comments, and reproducibility of documented workflows. Unresolved feedback carries forward, enabling cumulative evaluation.
+    \item[Standard 5 (Design–Implement Experiences):] Persistent repositories and PR-based iteration support design and implementation over time, especially in semester-long projects, while shorter cycles in the prerequisite course apply the same mechanisms at reduced scope.
+\end{description}
+
 \section{Transferable Design Principles}
 % Extract general design principles that can be reused across CDIO programs, independent of GitHub as a specific tool.
-TODO
+
 % - Present 4–6 concise, actionable principles
 % - Emphasize assessment infrastructure, sequencing, visibility, and iteration
 % - Avoid platform-specific prescriptions where possible
 
+The following principles are intended to be reusable across CDIO programs, independent of any specific platform.
+
+\begin{enumerate}
+    \item \textbf{Treat collaboration artifacts as assessment evidence.} Make PRs (or equivalents) the unit of review and grading so that intent, critique, and revision are visible.
+    \item \textbf{Sequence tool learning before complex project work.} Teach collaboration workflows in a lower-stakes course; assume proficiency in advanced, open-ended projects.
+    \item \textbf{Prefer persistent artifacts over fragmented tasks.} Use a single team repository for sustained projects to accumulate feedback, documentation, and decisions.
+    \item \textbf{Grade review quality and responsiveness.} Reward substantive peer critique and explicit responses; penalize cursory approvals.
+    \item \textbf{Assess reproducibility and handover, not only correctness.} Require concise run instructions, experiment summaries, and evolving documentation in the same space as the code or analysis.
+    \item \textbf{Carry feedback forward.} Treat unresolved comments as work-to-be-done and re-evaluate them at integrative milestones rather than resetting assessment.
+\end{enumerate}
+
 \section{Conclusions}
 % Summarize the contribution: PR-based assessment infrastructure supports professional collaboration, accountability, and traceability in CDIO courses. Reiterate that design choices, not tools alone, enable this.
-TODO
+
 % - Restate contribution without repeating the abstract
 % - Emphasize complementary role to industry-engaged assessment work
 % - Briefly mention future instructional refinements
+
+This paper presents a CDIO implementation in which pull requests function as assessment infrastructure for team-based project courses. By anchoring evaluation in PR authorship and review, explicit responses to feedback, and reproducible handover, the design makes collaboration, decision-making, and individual contribution observable within normal project activity. Persistent team repositories support continuity across cycles and enable efficient capstone re-evaluation without re-reading entire codebases or reports.
+
+The contribution is not the tool alone, but the \emph{assessment architecture}: PRs as the unit of feedback and grading, review quality as an assessed responsibility, and carry-forward of unresolved issues. Sequencing GitHub onboarding in an earlier course allows advanced courses to use these mechanisms naturally in complex, data-intensive projects. Future refinements will focus on lightweight review rubrics, improved PR templates for clarity and reproducibility, and continued calibration of expectations across mixed undergraduate–graduate cohorts.
