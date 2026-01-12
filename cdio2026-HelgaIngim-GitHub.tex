@@ -18,6 +18,17 @@
 \footer{Proceedings of the $22^\text{nd}$ International CDIO Conference, hosted by\\University of Liverpool, Liverpool, United Kingdom, June 22--25, 2026}
 
 \setuphyperref{}%enable clickable links
+
+\usepackage{enumitem}
+\newlist{romanenumerate*}{enumerate*}{1}
+\setlist[romanenumerate*]{
+  label=(\roman*),
+  itemjoin={{; }},
+  itemjoin*={{; and }},
+  before=\leavevmode,
+  after={{.}}
+}
+
 \begin{document}
 \makecdiotitle{
   \author{Helga Ingimundardóttir}
@@ -26,10 +37,11 @@
 }
 
 \section{Abstract}
-Team-based, open-ended project work is central to CDIO-aligned engineering education, yet assessing professional collaboration, individual contribution, and reproducibility remains challenging. This paper presents a CDIO Implementation case in which GitHub Classroom is used not as a programming topic, but as collaboration and assessment infrastructure in industrial engineering undergraduate and mixed undergraduate/graduate courses, including Business Intelligence and Information Engineering.
-The implementation centers on making pull requests (PRs) the primary unit of feedback, review, and assessment. Students are required to author or clearly co-author PRs, participate in substantive peer review with required approvals prior to merging, and respond explicitly to instructor comments within PR threads. Assessment emphasizes responsiveness to feedback, quality of peer review, reproducibility through documentation, and visible individual participation within team deliverables. Unresolved feedback from project cycles is carried forward into capstone evaluation, reinforcing accountability and continuity across the semester.
-An early design using separate repositories for each project cycle resulted in repeated onboarding, context loss, and high instructional overhead. The redesigned approach adopts one persistent repository per team across the semester, enabling cumulative iteration, traceability of decisions, and efficient final evaluation. To reduce cognitive load, instruction in GitHub collaboration practices was relocated to a prerequisite Information Engineering course, allowing subsequent courses to employ the tool authentically without concurrent tool training.
-Despite initial student resistance related to perceived overhead and redundancy with informal communication channels, graduated students later reported this practice as highly valuable for workplace readiness. The paper focuses on design decisions, trade-offs, and assessment mechanisms rather than learning-effect claims, offering transferable insights for CDIO programs seeking to align assessment with professional collaboration practices.
+Assessing collaboration, individual accountability, responsiveness to feedback, and reproducibility remains a persistent challenge in team-based, open-ended project courses. Final deliverables alone often conceal how work evolves, how decisions are made, and how feedback is addressed over time. This paper presents an implementation in which pull requests (PRs) serve as the central assessment artifact in project-based courses in Industrial Engineering, with GitHub Classroom used as stable collaboration and assessment infrastructure rather than as a programming topic or tooling tutorial.
+The implementation spans a two-course sequence. In a second-year mandatory course, students are explicitly onboarded to structured collaboration practices through short, skills-focused project cycles. In a subsequent advanced course, GitHub proficiency is assumed and assessment is organized around a single persistent team repository maintained across the semester. In this setting, PRs function as the primary unit of feedback, peer review, and evaluation. Students are required to author or co-author PRs, provide substantive peer reviews with multiple approvals, respond explicitly to instructor comments, and document reproducibility and handover within the repository. Unresolved feedback is carried forward across project cycles and revisited in capstone evaluation, enabling cumulative assessment rather than isolated grading of individual submissions.
+Early student resistance centered on perceived overhead and duplication of informal communication. Instructional responses focused on grading review quality, modeling effective feedback, and relocating collaboration onboarding earlier in the curriculum. Over time, PRs became more focused, review discussions more substantive, and documentation more consistent. Graduate reflections later characterized these practices as supportive of professional collaborative work.
+The paper focuses on design decisions, sequencing across courses, and trade-offs involved in using PRs as assessment infrastructure. It aims to provide transferable guidance for educators seeking to make collaboration, responsiveness, and reproducibility visible and assessable within team-based project courses.
+
 \section{Keywords}
 Pull requests, GitHub Classroom, assessment infrastructure, team-based learning; professional competence,
 CDIO standards: 5, 7, 8, 11
@@ -43,7 +55,7 @@ CDIO standards: 5, 7, 8, 11
 \input{body}
 
 \section{ACKNOWLEDGEMENTS}
-The author received no financial support for this work. The author thanks the students who participated in these courses for their engagement and for trusting a demanding collaboration process. While learning professional GitHub workflows is challenging, the students' commitment demonstrated the long-term value of these practices.
+The author received no financial support for this work. The author thanks the students who participated in these courses for their sustained engagement and for trusting a demanding collaboration and assessment approach. While adopting professional PR workflows requires substantial effort, the students' commitment demonstrated the long-term value of making collaboration explicit, visible, and accountable.
 
 %\section{REFERENCES}
 \setlength\bibitemsep{2pt}% Word template is single spaced, but it looks like there is extra space between items in the official implementation --foley
