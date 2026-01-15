@@ -13,7 +13,7 @@
 
 \graphicspath{{graphics/}{Graphics/}{./}}%You can store your images in these locations
 
-\title{Pull Requests as Assessment Infrastructure in CDIO Project Courses}
+\title{Using Pull Requests to Make Collaboration Visible in CDIO Project-Based Courses}
 
 \footer{Proceedings of the $22^\text{nd}$ International CDIO Conference, hosted by\\University of Liverpool, Liverpool, United Kingdom, June 22--25, 2026}
 
@@ -37,14 +37,13 @@
 }
 
 \section{Abstract}
-Assessing collaboration, individual accountability, responsiveness to feedback, and reproducibility remains a persistent challenge in team-based, open-ended project courses. Final deliverables alone often conceal how work evolves, how decisions are made, and how feedback is addressed over time. This paper presents an implementation in which pull requests (PRs) serve as the central assessment artifact in project-based courses in Industrial Engineering, with GitHub Classroom used as stable collaboration and assessment infrastructure rather than as a programming topic or tooling tutorial.
-The implementation spans a two-course sequence. In a second-year mandatory course, students are explicitly onboarded to structured collaboration practices through short, skills-focused project cycles. In a subsequent advanced course, GitHub proficiency is assumed and assessment is organized around a single persistent team repository maintained across the semester. In this setting, PRs function as the primary unit of feedback, peer review, and evaluation. Students are required to author or co-author PRs, provide substantive peer reviews with multiple approvals, respond explicitly to instructor comments, and document reproducibility and handover within the repository. Unresolved feedback is carried forward across project cycles and revisited in capstone evaluation, enabling cumulative assessment rather than isolated grading of individual submissions.
-Early student resistance centered on perceived overhead and duplication of informal communication. Instructional responses focused on grading review quality, modeling effective feedback, and relocating collaboration onboarding earlier in the curriculum. Over time, PRs became more focused, review discussions more substantive, and documentation more consistent. Graduate reflections later characterized these practices as supportive of professional collaborative work.
-The paper focuses on design decisions, sequencing across courses, and trade-offs involved in using PRs as assessment infrastructure. It aims to provide transferable guidance for educators seeking to make collaboration, responsiveness, and reproducibility visible and assessable within team-based project courses.
+Assessing collaboration, individual accountability, responsiveness to feedback, and reproducibility remains a persistent challenge in open-ended, team-based project courses. Final deliverables often mask how work evolved, how responsibilities were shared, and how decisions were negotiated. This paper presents an assessment design in which pull requests (PRs) serve as the central mechanism for making collaborative practices visible and assessable within CDIO-aligned project-based courses. Rather than treating GitHub as a programming topic or tooling exercise, the approach positions PRs as assessment infrastructure that binds technical change to process evidence through review discussions, explicit responses to comments, and documented handover.
+The implementation spans two intentionally sequenced courses in Industrial Engineering. A second-year course introduces structured collaboration practices through short, skills-focused project cycles. A subsequent advanced course assumes GitHub fluency and organizes all project work within a single persistent repository maintained across the semester. Within this environment, PRs function as the primary unit of feedback, peer review, and evaluation. Students make their reasoning, revisions, and communication visible through routine workflow activity, and unresolved feedback carries forward across project cycles into capstone evaluation, enabling cumulative rather than fragmented assessment.
+Experience across multiple offerings shows that PR-centered assessment improves the scope and specificity of peer review, strengthens documentation and reproducibility practices, and fosters shared responsibility for evolving team artifacts. Students initially expressed concern about perceived overhead, but review quality, documentation habits, and disciplined handover improved markedly as the workflow became routine. Graduating students later identified PR-based communication and accountability as directly transferable to professional settings.
+The paper highlights key design decisions, trade-offs, and sequencing choices, offering practical and transferable guidance for educators seeking assessment methods that make collaboration, responsiveness, and reproducibility genuinely visible in CDIO project-based courses.
 
 \section{Keywords}
-Pull requests, GitHub Classroom, assessment infrastructure, team-based learning; professional competence,
-CDIO standards: 5, 7, 8, 11
+Pull requests, GitHub Classroom, assessment infrastructure, team-based learning, professional competence, CDIO standards: 5, 7, 8, 11
 
 % The implementation primarily addresses CDIO Standards 7, 8, and 11. Pull-request-based workflows integrate disciplinary, interpersonal, and professional skills within authentic project activity (Standard 7), while review-driven iteration and peer engagement support active, experiential learning (Standard 8). Assessment is grounded in observable artifacts that make individual contribution, collaboration quality, and responsiveness to feedback visible within team outputs (Standard 11). The approach additionally supports Design–Implement experiences (Standard 5) through sustained, iterative project work enabled by persistent repositories.
 
@@ -55,7 +54,8 @@ CDIO standards: 5, 7, 8, 11
 \input{body}
 
 \section{ACKNOWLEDGEMENTS}
-The author received no financial support for this work. The author thanks the students who participated in these courses for their sustained engagement and for trusting a demanding collaboration and assessment approach. While adopting professional PR workflows requires substantial effort, the students' commitment demonstrated the long-term value of making collaboration explicit, visible, and accountable.
+The author received no financial support for this work. Thanks are due to the students whose sustained engagement and willingness to adopt a demanding collaboration and assessment approach made this implementation possible. Their commitment demonstrated the long-term value of making collaboration explicit, visible, and accountable.
+
 
 %\section{REFERENCES}
 \setlength\bibitemsep{2pt}% Word template is single spaced, but it looks like there is extra space between items in the official implementation --foley
