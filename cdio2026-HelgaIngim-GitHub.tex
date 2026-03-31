@@ -9,9 +9,12 @@
 \addbibresource{references.bib}% file with reference library
 
 \usepackage{tikz}
-\usetikzlibrary{fit,matrix,backgrounds}
+\usepackage{fontawesome5}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{booktabs}
+\usepackage{fontawesome5}
 
-\graphicspath{{graphics/}{Graphics/}{./}}%You can store your images in these locations
+\graphicspath{{graphics/}{Graphics/}{include/}}%You can store your images in these locations
 
 \title{Using Pull Requests to Make Collaboration Visible in CDIO Project-Based Courses}
 
@@ -37,7 +40,7 @@
 }
 
 \section{Abstract}
-Assessing collaboration, individual accountability, responsiveness to feedback, and reproducibility remains a persistent challenge in open-ended, team-based project courses. Final deliverables often mask how work evolved, how responsibilities were shared, and how decisions were negotiated. This paper presents an assessment design in which pull requests (PRs) serve as the central mechanism for making collaborative practices visible and assessable within CDIO-aligned project-based courses. Rather than treating GitHub as a programming topic or tooling exercise, the approach positions PRs as assessment infrastructure that binds technical change to process evidence through review discussions, explicit responses to comments, and documented handover.
+Assessing collaboration, individual accountability, responsiveness to feedback, and reproducibility remains a persistent challenge in open-ended, team-based project courses. Final deliverables often mask how work evolved, how responsibilities were shared, and how decisions were negotiated. This paper presents an assessment design in which pull requests (PRs), a mechanism for reviewing and integrating changes to shared project work, serve as the central mechanism for making collaborative practices visible and assessable within CDIO-aligned project-based courses. Rather than treating GitHub as a programming topic or tooling exercise, the approach positions PRs as assessment infrastructure that binds technical change to process evidence through review discussions, explicit responses to comments, and documented handover.
 The implementation spans two intentionally sequenced courses in Industrial Engineering. A second-year course introduces structured collaboration practices through short, skills-focused project cycles. A subsequent advanced course assumes GitHub fluency and organizes all project work within a single persistent repository maintained across the semester. Within this environment, PRs function as the primary unit of feedback, peer review, and evaluation. Students make their reasoning, revisions, and communication visible through routine workflow activity, and unresolved feedback carries forward across project cycles into capstone evaluation, enabling cumulative rather than fragmented assessment.
 Experience across multiple offerings shows that PR-centered assessment improves the scope and specificity of peer review, strengthens documentation and reproducibility practices, and fosters shared responsibility for evolving team artifacts. Students initially expressed concern about perceived overhead, but review quality, documentation habits, and disciplined handover improved markedly as the workflow became routine. Graduating students later identified PR-based communication and accountability as directly transferable to professional settings.
 The paper highlights key design decisions, trade-offs, and sequencing choices, offering practical and transferable guidance for educators seeking assessment methods that make collaboration, responsiveness, and reproducibility genuinely visible in CDIO project-based courses.
@@ -54,8 +57,7 @@ Pull requests, GitHub Classroom, assessment infrastructure, team-based learning,
 \input{body}
 
 \section{ACKNOWLEDGEMENTS}
-The author received no financial support for this work. Thanks are due to the students whose sustained engagement and willingness to adopt a demanding collaboration and assessment approach made this implementation possible. Their commitment demonstrated the long-term value of making collaboration explicit, visible, and accountable.
-
+The author received no financial support for this work. The author thanks the students whose sustained engagement and willingness to adopt a demanding collaboration and assessment approach made this implementation possible.
 
 %\section{REFERENCES}
 \setlength\bibitemsep{2pt}% Word template is single spaced, but it looks like there is extra space between items in the official implementation --foley

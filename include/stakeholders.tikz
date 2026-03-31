@@ -1,0 +1,82 @@
+\begin{figure}[b]
+\centering
+\begin{tikzpicture}[
+    x=1cm, y=1cm,
+    seg/.style={line width=0.5pt},
+    prseg/.style={line width=2pt},
+    prmerge/.style={-{Latex[length=2.2mm]}, line width=2pt},
+    sync/.style={-{Latex[length=2mm]}, dashed, line width=1.0pt},
+    commit/.style={circle, draw, fill=black, inner sep=1.7pt},
+    lbl/.style={font=\small},
+    ann/.style={font=\small\itshape}
+]
+
+% Lane labels
+\node[lbl, anchor=east] at (1.6,3.6) {\texttt{main}: \faUsers~ABC};
+\node[lbl, anchor=east] at (1.6,2.8) {\texttt{core-work}: \faUser~A};
+\node[lbl, anchor=east] at (1.6,2.0) {\texttt{feat-1}: \faUser~B};
+\node[lbl, anchor=east] at (1.6,1.2) {\texttt{feat-2}: \faUser~C};
+
+% Main line
+\node[commit] (m0) at (3.0,3.6) {};
+\node[commit] (m1) at (8.6,3.6) {};
+\node[commit] (m2) at (10.8,3.6) {};
+\draw[seg] (m0) -- (m1);
+\draw[seg] (m1) -- (m2);
+
+\node[ann, anchor=south] at (m0.north) {template};
+\node[ann, anchor=south] at (m2.north) {final result};
+
+% Core-work branch from main
+\draw[seg] (m0) .. controls (3.3,3.3) and (3.6,3.0) .. (4.0,2.8);
+\node[commit] (a1) at (4.0,2.8) {};
+\node[commit] (a2) at (5.0,2.8) {};
+\node[commit] (a3) at (6.1,2.8) {};
+\node[commit] (a4) at (7.2,2.8) {};
+\node[commit] (a5) at (9.0,2.8) {};
+\draw[seg] (a1) -- (a2);
+\draw[seg] (a2) -- (a3);
+\draw[seg] (a3) -- (a4);
+\draw[seg] (a4) -- (a5);
+
+% feature-B branches from core-work and returns later to core-work
+\draw[seg] (a2) .. controls (5.2,2.5) and (5.4,2.2) .. (5.7,2.0);
+\node[commit] (b1) at (5.7,2.0) {};
+\node[commit] (b2) at (6.5,2.0) {};
+\draw[seg] (b1) -- (b2);
+
+% feature-B merged back into a later point on core-work
+\draw[prmerge] (b2) .. controls (7.0,2.15) and (7.1,2.45) .. (a4);
+
+% feature-C branches from same initial node as core-work
+\draw[seg] (m0) .. controls (3.2,3.0) and (3.7,1.5) .. (4.3,1.2);
+\node[commit] (c1) at (4.3,1.2) {};
+\node[commit] (c2) at (6.0,1.2) {};
+\node[commit] (c3) at (7.3,1.2) {};
+\node[commit] (c4) at (7.9,1.2) {};
+\draw[seg] (c1) -- (c2);
+\draw[prseg] (c2) -- (c3);
+\draw[prseg] (c3) -- (c4);
+
+% feature-C merged to main after an extra commit
+\draw[prmerge] (c4) .. controls (8.4,1.9) and (8.5,3.0) .. (m1);
+
+% core-work syncs from main after C merge
+\draw[sync] (m1) .. controls (8.7,3.25) and (8.9,3.0) .. (a5);
+\node[ann, anchor=west] at (8.7,3.25) {sync};
+
+% core-work merged to final main
+\draw[prmerge] (a5) .. controls (9.5,3.05) and (10.0,3.35) .. (m2);
+
+% Right-aligned review annotations
+\node[ann, anchor=west] at (11.7,3.6) {feedback: \faChalkboardTeacher};
+\node[ann, anchor=west] at (11.7,2.8) {review: \faUser~\textup{B}, \faUser~\textup{C}};
+\node[ann, anchor=west] at (11.7,2.0) {review: \faUser~\textup{A}, \faUser~\textup{C}};
+\node[ann, anchor=west] at (11.7,1.2) {review: \faUser~\textup{A}, \faUser~\textup{B}};
+
+\end{tikzpicture}
+\caption{PR-centered interaction workflow for one IE project cycle. Students work on separate branches and integrate changes through reviewed pull requests. The PR phase is highlighted by thicker edges, indicating reviewed integration rather than independent work. 
+}
+
+\label{fig:ie-pr-workflow}
+\end{figure}

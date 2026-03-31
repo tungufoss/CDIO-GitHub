@@ -1,3 +1,18 @@
+
+descriptionFile tree
+searchProject search
+integration_instructionsIntegrations
+rate_reviewReview panel
+forumChat
+AI assistant
+help
+settings
+
+keyboard_arrow_down
+File tree
+
+keyboard_arrow_right
+File outline
 # Acceptance CDIO 2026 Papers
 
 Dear Helga Ingimundardóttir,
@@ -17,7 +32,7 @@ The reviewers comments are attached bellow.
 
 ---
 
-## 📅 Submission Information
+## �� Submission Information
 
 Please submit the final (camera-ready) version by **1st May 2026**.
 
@@ -27,7 +42,7 @@ Please note that at least one of the authors must register for the conference by
 
 ---
 
-## 📤 Paper Upload Instructions
+## �� Paper Upload Instructions
 
 - Ensure your that final paper strictly follows the provided template and formatting guidelines. You can find these at https://www.cdio2026.co.uk  
 - Ensure that your paper's metadata (title, abstract, authors data and keywords) is up to date in the ConfTool system.  
@@ -85,16 +100,16 @@ This is a strong, well-written, and highly relevant contribution addressing a pe
 
 To further strengthen the paper, I offer the following constructive suggestions:
 
-1. **Strengthen the assessment-theory positioning**  
+- [ ] **Strengthen the assessment-theory positioning**  
 The literature grounding is appropriate and well integrated; however, the scholarly framing could be enhanced by deeper engagement with assessment-focused research. In particular, connecting the work more explicitly to literature on formative assessment, peer assessment, process-oriented evaluation, feedback literacy, or collaborative learning assessment would strengthen the theoretical contribution. This would help situate the proposed architecture within broader assessment discourse beyond GitHub-based contexts.
 
-2. **Clarify the evidence base**  
+- [x] **Clarify the evidence base**  
 The practitioner/design-oriented framing is entirely appropriate for a CDIO practice paper. Nevertheless, including lightweight descriptive evidence would improve the paper’s analytical depth. For example, indicative metrics (e.g., changes in PR size, review frequency, documentation quality), structured observations, or brief illustrative examples of PR evolution could enhance credibility without requiring a full empirical study.
 
-3. **Elaborate limitations and boundary conditions**  
+- [ ] **Elaborate limitations and boundary conditions**  
 The manuscript appropriately acknowledges its experience-based nature. This discussion could be expanded slightly to address issues such as scalability (large cohorts), disciplinary transferability (non-technical domains), variability in student readiness, and potential tensions between workflow overhead and learning benefits. Such reflection would increase the paper’s value for diverse CDIO contexts.
 
-4. **Provide additional operational clarity**  
+- [x] **Provide additional operational clarity**  
 The transferable design principles are one of the paper’s strongest elements. Their practical utility could be further enhanced by briefly clarifying assessment calibration mechanisms. For instance, examples or criteria illustrating what constitutes a “substantive peer review,” or how review quality is evaluated, would improve reproducibility for other educators.
 
 ---
@@ -128,12 +143,12 @@ This paper descripes the use of pull requests (PR) for continuous assessment in 
 
 The paper presents an interesting approach of assessment method in an open end project course. The paper is very well written, with a good flow and easy to read. The paper is good as it is, but I would like to suggest the following changes that may improve the paper:
 
-- The concept of pull requests (PR) is maybe not generally known to all CDIO community, it would be appreciated if a general description of this method would be introduced in the beginning of the paper  
-- Page 2: It is not clear if Information Engineering course is 2nd year undergrad or grad course  
-- How many students are usually enrolled into the courses, how many groups are formed?  
-- Is the literature review sufficient? A number of studies are presented, but if this is a well known method there might be more case studies to review and discuss  
-- Are there any quantifiable measures on evaluating this method over previously used methods? student evaluation? student performance in the course/other continuing courses?  
-- What are the main limitations of using this method over other/previously used?  
+- [x] The concept of pull requests (PR) is maybe not generally known to all CDIO community, it would be appreciated if a general description of this method would be introduced in the beginning of the paper  
+- [x] Page 2: It is not clear if Information Engineering course is 2nd year undergrad or grad course  
+- [x] How many students are usually enrolled into the courses, how many groups are formed?  
+- [ ] Is the literature review sufficient? A number of studies are presented, but if this is a well known method there might be more case studies to review and discuss  
+- [ ] Are there any quantifiable measures on evaluating this method over previously used methods? student evaluation? student performance in the course/other continuing courses?  
+- [ ] What are the main limitations of using this method over other/previously used?  
 
 Good paper and well written, an interesting read, even for someone who is not an expert in this field
 
@@ -169,6 +184,6 @@ The main contribution of this submission is the development of an assessment arc
 
 By establishing Pull Requests (PRs) as assessment infrastructure, the paper introduces a pedagogical innovation that is in line with CDIO Standards 7, 8, and 11. One of the highlights is the deliberate order of the third-year BI course and the second-year IE course. However, the paper needs more visual clarity regarding the interaction model and does not currently have empirical evidence to support its efficacy.
 
-- The main issue is that the paper presents practitioner experience without reliable data or controlled experimentation. The author should include some quantitative data, collaboration metrics, and/or student perception to support the "Learning Assessment" (Standard 11) claim.  
-- The paper describes complex workflows but lacks a visual representation of the interaction between stakeholders. This should be improved in the final version.  
-- The author claims the model fosters "professional competence" and "shared responsibility". However, the link between specific CDIO skills and measurement methods should be more explicit.
+- [x] The main issue is that the paper presents practitioner experience without reliable data or controlled experimentation. The author should include some quantitative data, collaboration metrics, and/or student perception to support the "Learning Assessment" (Standard 11) claim.  
+- [x] The paper describes complex workflows but lacks a visual representation of the interaction between stakeholders. This should be improved in the final version.  
+- [x] The author claims the model fosters "professional competence" and "shared responsibility". However, the link between specific CDIO skills and measurement methods should be more explicit.
