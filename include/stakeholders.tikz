@@ -75,7 +75,7 @@
 \node[ann, anchor=west] at (11.7,1.2) {review: \faUser~\textup{A}, \faUser~\textup{B}};
 
 \end{tikzpicture}
-\caption{PR-centered interaction workflow for one IE project cycle. Students work on separate branches and integrate changes through reviewed pull requests. The PR phase is highlighted by thicker edges, indicating reviewed integration rather than independent work. 
+\caption{PR-centered interaction workflow for one project cycle. Students work on separate branches and integrate changes through reviewed pull requests. The PR phase is highlighted by thicker edges, indicating reviewed integration rather than independent work. 
 }
 
 \label{fig:ie-pr-workflow}
