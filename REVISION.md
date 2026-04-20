@@ -12,8 +12,6 @@ I thank the reviewers for their constructive and detailed feedback. The revision
 **Response:**  
 The manuscript now explicitly connects the proposed assessment architecture to formative and process-oriented assessment literature. In particular, PR-based workflows are framed as mechanisms that make feedback, revision, and learning processes visible and assessable. This connection is articulated in the section *Assessment Focus: Reproducibility, Handover, and Responsiveness*, linking observable behaviors to established assessment principles (Biggs & Tang, 2015).
 
----
-
 ### 2. Clarify the evidence base
 **Response (addressed):**  
 Lightweight quantitative evidence has been added in the *Student Response and Adaptive Refinement* section.  
@@ -24,8 +22,6 @@ Specifically:
 
 These provide indicative, non-experimental evidence aligned with the paper’s design-oriented scope.
 
----
-
 ### 3. Elaborate limitations and boundary conditions
 **Response:**  
 A dedicated “Boundary conditions and limitations” paragraph has been added (following the design principles section), addressing:
@@ -33,8 +29,6 @@ A dedicated “Boundary conditions and limitations” paragraph has been added (
 - Workflow overhead in early stages
 - Scalability considerations
 - Transferability to non-technical domains
-
----
 
 ### 4. Provide additional operational clarity
 **Response:**  
@@ -57,7 +51,6 @@ The literature positioning has been refined to:
 
 This strengthens positioning without expanding the review beyond scope.
 
----
 
 ### 2. Quantifiable measures vs previous methods
 **Response:**  
@@ -65,8 +58,6 @@ The manuscript now includes:
 - Quantitative trends from rubric-based data
 
 While no controlled experiment is conducted, the paper now provides indicative comparative evidence.
-
----
 
 ### 3. Limitations of the method
 **Response:**  
@@ -76,12 +67,8 @@ Limitations are now explicitly addressed in the “Boundary conditions and limit
 - Transferability constraints
 - Dependence on prior training
 
----
-
 ### 4. PR concept clarity (addressed)
 A concise definition of PRs has been added early in the paper.
-
----
 
 ### 5. Course level and enrollment (addressed)
 Course level, size, and team structure are now explicitly stated.
@@ -98,12 +85,9 @@ Quantitative and observational evidence has been added, including:
 
 The manuscript clearly positions these as indicative rather than experimental findings.
 
----
 
 ### 2. Lack of visual representation (addressed)
 A workflow diagram (Figure 1) has been included to clarify interaction structure.
-
----
 
 ### 3. Link between CDIO skills and measurement
 **Response (addressed):**  
