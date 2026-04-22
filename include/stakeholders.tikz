@@ -1,10 +1,8 @@
-\begin{figure}[b]
-\centering
 \begin{tikzpicture}[
     x=1cm, y=1cm,
     seg/.style={line width=0.5pt},
-    prseg/.style={line width=2pt},
-    prmerge/.style={-{Latex[length=2.2mm]}, line width=2pt},
+    prseg/.style={line width=3pt, color=orange},
+    prmerge/.style={-{Latex[length=2.2mm]}, prseg},
     sync/.style={-{Latex[length=2mm]}, dashed, line width=1.0pt},
     commit/.style={circle, draw, fill=black, inner sep=1.7pt},
     lbl/.style={font=\small},
@@ -69,14 +67,9 @@
 \draw[prmerge] (a5) .. controls (9.5,3.05) and (10.0,3.35) .. (m2);
 
 % Right-aligned review annotations
-\node[ann, anchor=west] at (11.7,3.6) {feedback: \faChalkboardTeacher};
+\node[ann, anchor=west] at (11.7,3.6) {feedback: \faChalkboardUser};
 \node[ann, anchor=west] at (11.7,2.8) {review: \faUser~\textup{B}, \faUser~\textup{C}};
 \node[ann, anchor=west] at (11.7,2.0) {review: \faUser~\textup{A}, \faUser~\textup{C}};
 \node[ann, anchor=west] at (11.7,1.2) {review: \faUser~\textup{A}, \faUser~\textup{B}};
 
 \end{tikzpicture}
-\caption{PR-centered interaction workflow for one project cycle. Students work on separate branches and integrate changes through reviewed pull requests. The PR phase is highlighted by thicker edges, indicating reviewed integration rather than independent work. 
-}
-
-\label{fig:ie-pr-workflow}
-\end{figure}

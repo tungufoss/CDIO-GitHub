@@ -44,7 +44,13 @@ PRs bind \emph{technical change} to \emph{collaborative process}. A PR couples a
 \section{Assessment architecture and implementation practices}
 Figure~\ref{fig:ie-pr-workflow} illustrates the interaction structure of a typical project cycle. Students begin from a shared repository template and work on commits within separate branches. All changes to \texttt{main} must be integrated through PRs; direct commits to \texttt{main} are not permitted. Responsibility for integration is therefore distributed: the student responsible for a branch must request reviews from teammates, where peers are responsible for evaluating, commenting on, and approving changes before merging. One contribution is developed as a dependent branch and merged back into the core work stream, while another proceeds through a PR phase involving iterative revision before being merged into \texttt{main}. After the parallel feature is merged, the updated state of \texttt{main} is synchronized back into the core work stream, ensuring that subsequent integration reflects the current shared state. The final integrated result on \texttt{main} is then subject to instructor feedback.
 
+\begin{figure}[b]
+\centering
 \input{include/stakeholders.tikz}
+\caption{PR-centered interaction workflow for one project cycle. Students work on separate branches and integrate changes through reviewed pull requests. The PR phase is highlighted by thicker edges, indicating reviewed integration rather than independent work. 
+}
+\label{fig:ie-pr-workflow}
+\end{figure}
 
 \subsection{Assessable behaviors and required practices}
 
@@ -102,7 +108,13 @@ Early student response highlighted perceived duplication of communication (``we 
 Over successive offerings, PRs became smaller and better scoped, documentation improved, and review discussions became more substantive. This progression is also reflected in rubric-based assessment data from the undergraduate IE course (cf.~Table~\ref{tbl:IE-rubric}), where GitHub practices are introduced. Normalized scores (range $[0,1]$) across eight team assignments (23 student observations) show a positive trend in both GitHub usage (slope = 0.019, $p = 0.023$) and teamwork and participation (slope = 0.047, $p < 0.001$), indicating increasing adoption of collaborative workflows and more active engagement in shared development practices.
 These trends are consistent with observed improvements relative to earlier course iterations without structured PR-based collaboration workflows.
 
+\begin{table}[t]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\caption{Rubric used to assess GitHub collaboration practices in the IE course}\label{tbl:IE-rubric}
 \input{include/rubric}
+\end{table}
 
 \section{Alignment with CDIO Standards}
 This implementation aligns primarily with CDIO Standards 7, 8, and 11, with partial alignment to Standard 5 \parencite{malmqvist2020standards3}. 

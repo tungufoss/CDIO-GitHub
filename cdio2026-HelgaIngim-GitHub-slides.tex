@@ -1,0 +1,421 @@
+\documentclass[
+    NAME={Dr. Helga Ingimundardóttir},
+    EMAIL={helgaingim@hi.is},
+    FACULTY={Industrial Engineering},
+    TITLE={Using Pull Requests to Make Collaboration Visible in CDIO Project-Based Courses},
+    SEMINAR={22\textsuperscript{nd} International CDIO Conference},
+    DATE={June 22\textsuperscript{nd} 2026},
+    WIDE=true
+]{HI-LaTeX/hi-beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{fit,matrix,backgrounds}
+\usetikzlibrary{arrows.meta,positioning}
+
+\usepackage[fixed,style=solid]{fontawesome7}
+
+\begin{document}
+
+%------------------------------------------------
+\begin{frame}{Motivation}
+
+\begin{block}{\faBuildingColumns~Project-based courses}
+Assessment often prioritizes final artifacts, limiting visibility into collaboration, reasoning, and responsiveness to feedback
+\end{block}
+
+\begin{block}{\faGithub~Professional practice}
+Modern technical work relies on version control, peer review, and documented iteration--skills students are expected to use immediately in the workforce
+\end{block}
+
+\begin{alertblock}{\faScaleBalanced~Assessment misalignment}
+What we value in learning is not always what we can currently observe
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Framing the problem}
+
+\begin{exampleblock}{\faDumbbell~Core question}
+How can collaboration, accountability, and responsiveness to feedback be made \emph{visible and assessable} in team-based projects?
+\end{exampleblock}
+
+\begin{itemize}
+    \item final deliverables hide process and contribution
+    \item peer interaction is difficult to audit retrospectively
+    \item feedback often resets instead of accumulating
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Learning with professional collaboration tools}
+
+\begin{exampleblock}{\faToolbox~Not just another tool}
+Git/GitHub is an industry-standard collaboration infrastructure
+\end{exampleblock}
+
+\begin{itemize}
+    \item used across software, data science, and engineering teams
+    \item supports version control, review, and reproducible handover
+    \item directly transferable -- students can credibly list this on their CV
+\end{itemize}
+
+\vspace{.5em}
+
+\emph{\faFaceGrinStars\ Motivation: students practice skills they will immediately use}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Minimal GitHub concepts (for assessment)}
+
+\begin{block}{\faDatabase~Repository}
+A shared workspace containing code, data, documentation, and history
+\end{block}
+
+\begin{block}{\faCodePullRequest~Pull Request (PR)}
+A structured proposal to change shared work, including:
+\begin{itemize}
+    \item rationale and scope
+    \item peer review and discussion
+    \item explicit approval and merge decision
+\end{itemize}
+\end{block}
+
+\emph{\faKey\ Key idea: PRs bind technical change to collaborative process}
+
+\end{frame}
+
+%------------------------------------------------
+%------------------------------------------------
+\begin{frame}{Design rationale}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.38\textwidth}
+\begin{block}{\faCompassDrafting~Starting point}
+\begin{itemize}
+    \item CDIO-aligned
+    \item assessment as development
+    \item observable collaborative
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.58\textwidth}
+\begin{alertblock}{\faKey~Design claim}
+Pull requests are not treated as a tooling detail, but as \emph{assessment infrastructure}:
+\[
+\faComments~\text{feedback}
+\;+
+\faRepeat~\text{iteration}
+\;\Rightarrow\;
+\faMedal~\text{competence}
+\]
+\end{alertblock}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Why pull requests matter}
+
+\begin{columns}[T,onlytextwidth]
+
+\begin{column}{.44\textwidth}
+\begin{block}{\faDatabase~Repository}
+A shared workspace containing code, data, documentation, and history
+\end{block}
+
+\begin{block}{\faCodePullRequest~Pull Request (PR)}
+A structured proposal to change shared work through:
+\begin{itemize}
+    \item rationale and scope
+    \item peer review and discussion
+    \item approval and merge decision
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.51\textwidth}
+\begin{exampleblock}{\faMagnifyingGlass~Why it matters for assessment}
+\begin{itemize}
+    \item reasoning becomes visible
+    \item contribution becomes attributable
+    \item critique and negotiation are captured
+    \item responses to feedback are auditable
+\end{itemize}
+\end{exampleblock}
+
+\vspace{0.4em}
+\begin{alertblock}{\faLightbulb~Reframing}
+PRs bind technical change to collaborative process
+\end{alertblock}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Assessable behaviors made visible}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\begin{block}{\faClipboardList~Required practices}
+\begin{itemize}
+    \item focused PRs with clear intent
+    \item at least two substantive reviews
+    \item explicit responses to all comments
+    \item merge only after review
+\end{itemize}
+\end{block}
+\end{column}
+\begin{column}{.48\textwidth}
+\begin{block}{\faUserCheck~Observable evidence}
+\begin{itemize}
+    \item authorship and co-authorship
+    \item depth of critique and follow-up
+    \begin{itemize}
+        \item[\faGavel] actionable comments (no \texttt{LGTM} or \faThumbsUp)
+    \end{itemize}
+    \item handover quality
+    \item documentation updates
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\centering\resizebox{.8\linewidth}{!}{\input{include/stakeholders.tikz}}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Scaffolded progression across courses}
+
+\begin{columns}[T,onlytextwidth]
+
+\begin{column}{.48\textwidth}
+\begin{block}{\faUser~Information Engineering (IE)}
+\begin{itemize}
+    \item 20--25 students
+    \item 6--7 small teams
+    \item early undergraduate
+    \item new repository each cycle
+\end{itemize}
+
+\begin{block}{\faToolbox~Main purpose}
+Tooling and collaboration practices are the learning focus
+\end{block}
+\end{block}
+
+
+\end{column}
+
+\begin{column}{.48\textwidth}
+\begin{block}{\faUserGraduate~Business Intelligence (BI)}
+\begin{itemize}
+    \item 10--15 students
+    \item 2 large teams
+    \item assumes GitHub fluency
+    \item single persistent repository
+\end{itemize}
+
+\begin{block}{\faLayerGroup~Main purpose}
+Tooling supports more advanced project work
+\end{block}
+
+\end{block}
+
+\end{column}
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Feedback carry-forward}
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.56\textwidth}
+\begin{block}{\faArrowsRotate~Cumulative assessment}
+\begin{itemize}
+    \item unresolved PR comments remain active
+    \item later work is checked against prior feedback
+    \item capstone evaluation includes earlier issues
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.40\textwidth}
+\begin{exampleblock}{\faBullseye~Effect}
+\begin{itemize}
+    \item continuity
+    \item accountability
+    \item coherence
+    \item less fragmentation
+\end{itemize}
+\end{exampleblock}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Indicative evidence}
+
+\centering
+\resizebox{.90\linewidth}{!}{
+\scriptsize
+\renewcommand{\arraystretch}{1.5}
+\input{include/rubric.tex}}
+\vfill
+\begin{columns}[T,onlytextwidth]
+\small
+\begin{column}{.47\textwidth}
+\begin{exampleblock}{\faArrowTrendUp~Calibration}
+\begin{itemize}
+    \item levels: developmental\faArrowRight outstanding
+    \item same dimensions, increasing expectations
+    \item signals expectations for Capstone
+\end{itemize}
+\end{exampleblock}
+\end{column}
+
+\begin{column}{.50\textwidth}
+\begin{block}{\faChartLine~Observed trend}
+\begin{itemize}
+    \item GitHub usage improved over repeated cycles
+    \item teamwork \& participation improved more strongly
+\end{itemize}
+\end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}{Balancing team and individual assessment}
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\begin{block}{\faUsers~Team-level}
+\begin{itemize}
+    \item analytical quality
+    \item coherence
+    \item shared responsibility
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.48\textwidth}
+\begin{block}{\faUserCheck~Individual-level}
+\begin{itemize}
+    \item visible contributions
+    \item review quality
+    \item responsiveness to feedback
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+
+\vspace{0.4em}
+\begin{alertblock}{\faScaleBalanced~Design goal}
+Accountability without fragmenting teamwork
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Key tensions}
+
+\begin{columns}[T,onlytextwidth]
+
+\begin{column}{.30\textwidth}
+\begin{block}{\faShieldHalved~Reliability}
+\centering development\\ vs.\ professional reliability
+\end{block}
+\end{column}
+
+\begin{column}{.30\textwidth}
+\begin{block}{\faUsers~Responsibility}
+\centering autonomy\\ vs.\ accountability
+\end{block}
+\end{column}
+
+\begin{column}{.30\textwidth}
+\begin{block}{\faLaptopCode~Workflows}
+\centering workflow overhead\\ vs.\ learning benefit
+\end{block}
+\end{column}
+
+\end{columns}
+
+\vspace{0.4em}
+\begin{alertblock}{\faBolt~Interpretation}
+These tensions are not eliminated, but made explicit and worked with
+\end{alertblock}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Limitations and next steps}
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\begin{block}{\faLock~Boundary conditions}
+\begin{itemize}
+    \item design-oriented, not experimental
+    \item depends on student readiness
+    \item larger cohorts require more coordination
+\end{itemize}
+\end{block}
+\end{column}
+
+\begin{column}{.48\textwidth}
+\begin{block}{\faArrowTrendUp~Next iterations}
+\begin{itemize}
+    \item extend to more courses
+    \item structured team-building to accelerate trust
+    \item refined review calibration
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%------------------------------------------------
+\begin{frame}{Conclusions}
+
+\begin{exampleblock}{\faFlagCheckered~Key takeaway}
+PR-based assessment makes collaboration, accountability, and responsiveness to feedback visible and assessable
+\end{exampleblock}
+
+\begin{itemize}
+    \item assessment moves from final products to visible process
+    \item feedback carries forward instead of resetting
+    \item students practice professional collaboration in routine course work
+\end{itemize}
+
+\vspace{0.4em}
+\begin{alertblock}{\faLightbulb~Contribution}
+This is an assessment architecture, not just a tool choice
+\end{alertblock}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}{Questions?}
+    \begin{columns}        
+        \begin{column}{0.5\textwidth} 
+        \includegraphics[height=\textwidth]{include/vr2.jpg}
+        \end{column}
+        \hfill
+        \begin{column}{0.4\textwidth}         
+            \begin{exampleblock}{Contact details:}            
+            \begin{itemize}
+                \item[\faEnvelope] helgaingim@hi.is
+                \item[\faPhone] +354 525-4630
+                \item[\faBuildingColumns] VR-II, University of Iceland
+                \item[\faLinkedin] helgaingimundardottir
+                \item[\faGithub] @tungufoss
+            \end{itemize}
+            \end{exampleblock}
+            \end{column}
+    \end{columns}    
+\end{frame}
+
+\end{document}
+
