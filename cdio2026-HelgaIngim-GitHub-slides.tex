@@ -7,7 +7,7 @@
     DATE={June 22\textsuperscript{nd} 2026},
     WIDE=true
 ]{HI-LaTeX/hi-beamer}
-
+\setbeameroption{show notes on second screen}
 \usepackage{tikz}
 \usetikzlibrary{fit,matrix,backgrounds}
 \usetikzlibrary{arrows.meta,positioning}
@@ -18,7 +18,6 @@
 
 %------------------------------------------------
 \begin{frame}{Motivation}
-
 \begin{block}{\faBuildingColumns~Project-based courses}
 Assessment often prioritizes final artifacts, limiting visibility into collaboration, reasoning, and responsiveness to feedback
 \end{block}
@@ -31,29 +30,44 @@ Modern technical work relies on version control, peer review, and documented ite
 What we value in learning is not always what we can currently observe
 \end{alertblock}
 \end{frame}
+\note{
+Project-based courses are widely used -- and we care about \emph{collaboration}, \emph{reasoning}, and \emph{responsiveness to feedback}.  
 
+But in practice, assessment still prioritizes \emph{final artifacts} -- reports, code, presentations.  
+
+At the same time, professional work is inherently \emph{collaborative} and \emph{iterative}.  
+
+Version control, peer review, and documented iteration are not optional -- they are core practice.  
+
+So the tension is this -- what we value in learning is not always what we can actually \emph{observe and assess}.
+}
 %------------------------------------------------
 \begin{frame}{Framing the problem}
-
 \begin{exampleblock}{\faDumbbell~Core question}
 How can collaboration, accountability, and responsiveness to feedback be made \emph{visible and assessable} in team-based projects?
 \end{exampleblock}
-
 \begin{itemize}
     \item final deliverables hide process and contribution
     \item peer interaction is difficult to audit retrospectively
     \item feedback often resets instead of accumulating
 \end{itemize}
-
 \end{frame}
+\note{
+This leads to the core question --  
 
+How do we make \emph{collaboration}, \emph{accountability}, and \emph{responsiveness to feedback} visible and assessable?  
+
+In team projects, the final deliverable hides most of what matters -- who did what, how decisions were made, and how feedback was handled.  
+
+Peer interaction is difficult to reconstruct after the fact -- and feedback often \emph{resets} instead of accumulating.  
+
+So the issue is not lack of activity -- it is lack of \emph{visibility}.
+}
 %------------------------------------------------
 \begin{frame}{Learning with professional collaboration tools}
-
 \begin{exampleblock}{\faToolbox~Not just another tool}
 Git/GitHub is an industry-standard collaboration infrastructure
 \end{exampleblock}
-
 \begin{itemize}
     \item used across software, data science, and engineering teams
     \item supports version control, review, and reproducible handover
@@ -66,9 +80,20 @@ Git/GitHub is an industry-standard collaboration infrastructure
 
 \end{frame}
 
+\note{
+The approach is to use professional collaboration tools -- not as an add-on, but as part of the learning environment.  
+
+Git and GitHub are widely used across technical fields.  
+
+They support \emph{version control}, \emph{peer review}, and \emph{reproducibility}.  
+
+Importantly, these are skills students are expected to use immediately after graduation.  
+
+So this is not just about authenticity -- it is about \emph{transfer}.  
+Students practice what they will actually use.
+}
 %------------------------------------------------
 \begin{frame}{Minimal GitHub concepts (for assessment)}
-
 \begin{block}{\faDatabase~Repository}
 A shared workspace containing code, data, documentation, and history
 \end{block}
@@ -85,8 +110,17 @@ A structured proposal to change shared work, including:
 \emph{\faKey\ Key idea: PRs bind technical change to collaborative process}
 
 \end{frame}
+\note{
+Briefly aligning terminology --  
 
-%------------------------------------------------
+A repository is a shared workspace containing code, data, and history.  
+
+A pull request -- or PR -- is a structured proposal to change shared work.  
+
+It includes a rationale, and is reviewed, discussed, and approved before merging.  
+
+The key idea is that PRs bind \emph{technical change} to \emph{collaborative process}.
+}
 %------------------------------------------------
 \begin{frame}{Design rationale}
 \begin{columns}[T,onlytextwidth]
@@ -99,7 +133,6 @@ A structured proposal to change shared work, including:
 \end{itemize}
 \end{block}
 \end{column}
-
 \begin{column}{.58\textwidth}
 \begin{alertblock}{\faKey~Design claim}
 Pull requests are not treated as a tooling detail, but as \emph{assessment infrastructure}:
@@ -112,20 +145,24 @@ Pull requests are not treated as a tooling detail, but as \emph{assessment infra
 \]
 \end{alertblock}
 \end{column}
-
 \end{columns}
 \end{frame}
+\note{
+The design is CDIO-aligned and treats assessment as a \emph{developmental process}.  
 
+The focus is on \emph{observable collaboration}, not just outcomes.  
+
+The central claim is that pull requests are not just a tool -- but can function as \emph{assessment infrastructure}.  
+
+They make feedback and iteration visible -- and over time this supports competence development.
+}
 %------------------------------------------------
 \begin{frame}{Why pull requests matter}
-
 \begin{columns}[T,onlytextwidth]
-
 \begin{column}{.44\textwidth}
 \begin{block}{\faDatabase~Repository}
 A shared workspace containing code, data, documentation, and history
 \end{block}
-
 \begin{block}{\faCodePullRequest~Pull Request (PR)}
 A structured proposal to change shared work through:
 \begin{itemize}
@@ -135,7 +172,6 @@ A structured proposal to change shared work through:
 \end{itemize}
 \end{block}
 \end{column}
-
 \begin{column}{.51\textwidth}
 \begin{exampleblock}{\faMagnifyingGlass~Why it matters for assessment}
 \begin{itemize}
@@ -145,16 +181,24 @@ A structured proposal to change shared work through:
     \item responses to feedback are auditable
 \end{itemize}
 \end{exampleblock}
-
 \vspace{0.4em}
 \begin{alertblock}{\faLightbulb~Reframing}
-PRs bind technical change to collaborative process
+PRs expose the learning process
 \end{alertblock}
 \end{column}
-
 \end{columns}
 \end{frame}
+\note{
+A PR naturally contains what we want to assess --  
 
+rationale, critique, discussion, and decisions.  
+
+This means reasoning becomes \emph{visible},  
+contributions become \emph{attributable},  
+and responses to feedback become \emph{auditable}.  
+
+So the reframing is simple -- PRs expose the learning process.
+}
 %------------------------------------------------
 \begin{frame}{Assessable behaviors made visible}
 \begin{columns}[T,onlytextwidth]
@@ -184,12 +228,21 @@ PRs bind technical change to collaborative process
 \end{columns}
 \centering\resizebox{.8\linewidth}{!}{\input{include/stakeholders.tikz}}
 \end{frame}
+\note{
+We define specific required practices.  
 
+Students submit focused PRs, receive at least two \emph{substantive} reviews,  
+and respond explicitly to all comments.  
+
+Substantive means actionable feedback -- not just superficial approval  
+
+Assessment then uses observable evidence -- authorship, critique, follow-up, and handover.  
+
+So assessment shifts from hidden process to \emph{visible artifacts}.
+}
 %------------------------------------------------
 \begin{frame}{Scaffolded progression across courses}
-
 \begin{columns}[T,onlytextwidth]
-
 \begin{column}{.48\textwidth}
 \begin{block}{\faUser~Information Engineering (IE)}
 \begin{itemize}
@@ -198,15 +251,11 @@ PRs bind technical change to collaborative process
     \item early undergraduate
     \item new repository each cycle
 \end{itemize}
-
 \begin{block}{\faToolbox~Main purpose}
 Tooling and collaboration practices are the learning focus
 \end{block}
 \end{block}
-
-
 \end{column}
-
 \begin{column}{.48\textwidth}
 \begin{block}{\faUserGraduate~Business Intelligence (BI)}
 \begin{itemize}
@@ -215,21 +264,24 @@ Tooling and collaboration practices are the learning focus
     \item assumes GitHub fluency
     \item single persistent repository
 \end{itemize}
-
 \begin{block}{\faLayerGroup~Main purpose}
 Tooling supports more advanced project work
 \end{block}
-
 \end{block}
-
 \end{column}
-
 \end{columns}
 \end{frame}
+\note{
+This is implemented across two courses.  
 
+In Information Engineering, the focus is learning the tools -- small teams, repeated practice, new repositories.  
+
+In Business Intelligence, students are assumed fluent -- one persistent repository across the semester.  
+
+So there is progression -- from learning the workflow to using it as \emph{infrastructure}.
+}
 %------------------------------------------------
 \begin{frame}{Feedback carry-forward}
-
 \begin{columns}[T,onlytextwidth]
 \begin{column}{.56\textwidth}
 \begin{block}{\faArrowsRotate~Cumulative assessment}
@@ -240,7 +292,6 @@ Tooling supports more advanced project work
 \end{itemize}
 \end{block}
 \end{column}
-
 \begin{column}{.40\textwidth}
 \begin{exampleblock}{\faBullseye~Effect}
 \begin{itemize}
@@ -253,9 +304,23 @@ Tooling supports more advanced project work
 \end{column}
 \end{columns}
 \end{frame}
+\note{
+When teams are working with a single, persistent repository, feedback can carry forward -- it doesn't reset between assignments.
 
+If an issue is raised in a pull request and not resolved, it remains visible in the repository.  
+
+Later work is then evaluated in light of that earlier feedback -- including in the capstone.  
+
+So feedback accumulates over time rather than fragmenting across tasks.  
+
+This creates \emph{continuity} and \emph{accountability}.  
+
+Students cannot simply move on -- they have to revisit and resolve issues.  
+
+And that is much closer to professional practice.
+}
+%------------------------------------------------
 \begin{frame}{Indicative evidence}
-
 \centering
 \resizebox{.90\linewidth}{!}{
 \scriptsize
@@ -273,7 +338,6 @@ Tooling supports more advanced project work
 \end{itemize}
 \end{exampleblock}
 \end{column}
-
 \begin{column}{.50\textwidth}
 \begin{block}{\faChartLine~Observed trend}
 \begin{itemize}
@@ -282,14 +346,32 @@ Tooling supports more advanced project work
 \end{itemize}
 \end{block}
 \end{column}
-
 \end{columns}
 \end{frame}
+\note{
+To clarify the rubric design --  
 
+The GitHub usage and teamwork dimensions are \emph{shared across both courses}.  
+Early on, we are deliberately \emph{lenient} -- students are still learning the workflow.  
 
+We observe improvement in GitHub use and stronger improvement in teamwork and participation.  
+Qualitatively, PRs become more focused, better documented, and more responsive.  
+
+In the BI course, each thematic module also has its own rubric --  
+and these are \emph{reused directly in the capstone}.  
+
+During the learning phase, grading is \emph{normalized to ``very good''}.  
+So students are not penalized for early-stage work --  
+
+but they are explicitly shown what will be expected in a more \emph{refined, final version}.  
+
+This allows them to \emph{prioritize effort} --  
+they can revisit earlier work, address feedback, and align with final expectations in the capstone.  
+
+So students are not only evaluated -- they are shown what ``good enough'' looks like \emph{before} the capstone.  
+}
 %------------------------------------------------
 \begin{frame}{Balancing team and individual assessment}
-
 \begin{columns}[T,onlytextwidth]
 \begin{column}{.48\textwidth}
 \begin{block}{\faUsers~Team-level}
@@ -300,7 +382,6 @@ Tooling supports more advanced project work
 \end{itemize}
 \end{block}
 \end{column}
-
 \begin{column}{.48\textwidth}
 \begin{block}{\faUserCheck~Individual-level}
 \begin{itemize}
@@ -311,48 +392,61 @@ Tooling supports more advanced project work
 \end{block}
 \end{column}
 \end{columns}
-
 \vspace{0.4em}
 \begin{alertblock}{\faScaleBalanced~Design goal}
 Accountability without fragmenting teamwork
 \end{alertblock}
 \end{frame}
+\note{
+A common concern is balancing team and individual assessment.  
 
+Team-level outcomes still matter -- quality and coherence.  
+
+But individual contribution becomes visible through artifacts -- commits, reviews, and discussion.  
+
+The goal is \emph{accountability} without breaking \emph{collaboration}.
+}
 %------------------------------------------------
-\begin{frame}{Key tensions}
-
+\begin{frame}{Key shifts in practice}
 \begin{columns}[T,onlytextwidth]
-
 \begin{column}{.30\textwidth}
-\begin{block}{\faShieldHalved~Reliability}
-\centering development\\ vs.\ professional reliability
+\begin{block}{\faShieldHalved~Quality}
+\centering iteration\\ vs.\ reviewable work
 \end{block}
 \end{column}
-
 \begin{column}{.30\textwidth}
-\begin{block}{\faUsers~Responsibility}
-\centering autonomy\\ vs.\ accountability
+\begin{block}{\faUsers~Collaboration}
+\centering implicit teamwork\\ vs.\ explicit review
 \end{block}
 \end{column}
-
 \begin{column}{.30\textwidth}
-\begin{block}{\faLaptopCode~Workflows}
-\centering workflow overhead\\ vs.\ learning benefit
+\begin{block}{\faLaptopCode~Workflow}
+\centering informal work\\ vs.\ structured process
 \end{block}
 \end{column}
-
 \end{columns}
-
 \vspace{0.4em}
-\begin{alertblock}{\faBolt~Interpretation}
-These tensions are not eliminated, but made explicit and worked with
+\begin{alertblock}{\faLightbulb~Takeaway}
+Making collaboration visible turns implicit practices into something we can teach and assess
 \end{alertblock}
-
 \end{frame}
+\note{
+What PR-based workflows do is make collaboration practices \emph{explicit}.  
 
+Students are not used to reviewing each other's work critically.  
+That's not a problem -- it's something we need to \emph{teach and normalize}.  
+
+Similarly, work becomes visible much earlier.  
+Students can no longer rely on polishing something at the end -- they have to produce work that can be reviewed along the way.  
+
+And the workflow itself introduces structure.  
+That can feel like overhead, but it is also what enables learning -- especially around collaboration and feedback.  
+
+So rather than thinking of these as problems or tensions,  
+they are \emph{practices becoming visible} -- and therefore teachable.
+}
 %------------------------------------------------
 \begin{frame}{Limitations and next steps}
-
 \begin{columns}[T,onlytextwidth]
 \begin{column}{.48\textwidth}
 \begin{block}{\faLock~Boundary conditions}
@@ -363,7 +457,6 @@ These tensions are not eliminated, but made explicit and worked with
 \end{itemize}
 \end{block}
 \end{column}
-
 \begin{column}{.48\textwidth}
 \begin{block}{\faArrowTrendUp~Next iterations}
 \begin{itemize}
@@ -375,28 +468,50 @@ These tensions are not eliminated, but made explicit and worked with
 \end{column}
 \end{columns}
 \end{frame}
+\note{
+There is definitely some initial overhead -- especially around learning the workflow and review practices.  
 
+Students are not used to this level of structure or visibility.  
 
+It also depends on readiness -- this works much better once basic tooling is already in place.  
+
+And scaling requires coordination, particularly around review quality.  
+
+So this is not a drop-in solution -- it needs to be designed into the course.
+}
 %------------------------------------------------
 \begin{frame}{Conclusions}
-
 \begin{exampleblock}{\faFlagCheckered~Key takeaway}
 PR-based assessment makes collaboration, accountability, and responsiveness to feedback visible and assessable
 \end{exampleblock}
-
 \begin{itemize}
     \item assessment moves from final products to visible process
     \item feedback carries forward instead of resetting
     \item students practice professional collaboration in routine course work
 \end{itemize}
-
 \vspace{0.4em}
 \begin{alertblock}{\faLightbulb~Contribution}
 This is an assessment architecture, not just a tool choice
 \end{alertblock}
 \end{frame}
-%------------------------------------------------
+\note{
+The key takeaway is that making collaboration visible fundamentally changes what we can assess.  
 
+There is an initial overhead -- students don't always enjoy the structure at first.  
+Reviewing peers, documenting work, responding to feedback -- this is unfamiliar and effortful.  
+
+But over time, the quality of work improves significantly.  
+Work becomes more structured, better justified, and more coherent.  
+
+And importantly, students recognize this afterwards.  
+Many of them explicitly say that this is where they learned the most -- not just the content, but how to actually work.  
+
+So the impact is not just in what they produce --  
+it's in how they approach collaboration, feedback, and responsibility.  
+
+And that comes from the \emph{assessment structure}, not the specific subject matter.
+}
+%------------------------------------------------
 \begin{frame}{Questions?}
     \begin{columns}        
         \begin{column}{0.5\textwidth} 
@@ -416,6 +531,33 @@ This is an assessment architecture, not just a tool choice
             \end{column}
     \end{columns}    
 \end{frame}
+\note{
+A few questions that often come up --  
+
+\emph{Isn't this a lot of overhead?}  
+Yes -- there is initial overhead.  
+But it decreases quickly, and the payoff is that assessment becomes much easier and more transparent later.  
+
+\emph{What about students with no GitHub experience?}  
+We scaffold this earlier in the curriculum.  
+In later courses, we assume fluency so the tooling does not dominate the learning.  
+
+\emph{Does this scale?}  
+It can scale, but requires coordination -- especially around review practices.  
+The visibility actually helps manage larger groups.  
+
+\emph{How do you ensure fairness in team assessment?}  
+Individual contributions are visible through PRs, reviews, and discussion.  
+So we don't rely only on peer evaluation -- we have \emph{artifact-based evidence}.  
+
+\emph{Is this specific to software or data courses?}  
+The tooling is domain-specific, but the principle is not.  
+The idea is to make process and feedback visible -- the same logic can apply elsewhere.  
+
+\emph{Is this just about GitHub?}  
+No -- GitHub is the \emph{enabler}.  
+The contribution is the \emph{assessment architecture}.  
+}
 
 \end{document}
 
