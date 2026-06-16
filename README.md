@@ -1,83 +1,60 @@
 # CDIO Implementation Paper
 ## Using Pull Requests to Make Collaboration Visible in CDIO Project-Based Courses
 
-This repository contains the source and supporting materials for a CDIO Implementation paper accepted with minor changes for the 22nd International CDIO Conference (2026).
-
-**Title:**
-Using Pull Requests to Make Collaboration Visible in CDIO Project-Based Courses
-
-**Author:**
-Helga Ingimundardottir
-Assistant Professor of Industrial Engineering
-University of Iceland
+**Author:** Helga Ingimundardóttir, Assistant Professor of Industrial Engineering, University of Iceland
+**Event:** 22nd International CDIO Conference, June 24th, 2026
 
 ---
 
 ## Overview
 
-This paper presents a CDIO implementation case describing the use of GitHub Classroom as collaboration and assessment infrastructure in industrial engineering undergraduate and mixed undergraduate/graduate courses.
+This repository contains the paper source and the conference presentation for a CDIO Implementation paper accepted for the 22nd International CDIO Conference (2026).
 
-The implementation addresses challenges common in team-based, open-ended, data-intensive project courses, including visibility of individual contribution, quality of collaboration, responsiveness to feedback, and reproducibility of results. Rather than treating GitHub as a programming topic, the platform is framed as a professional collaboration environment in which assessment is anchored to observable artifacts.
-
-The core design centers on pull requests (PRs) as the primary unit of feedback and assessment. Students are required to author or co-author PRs, participate in substantive peer review with required approvals prior to merge, and respond explicitly to instructor comments within PR threads. Assessment emphasizes review quality, responsiveness to feedback, documentation and handover, and visible individual participation within collective work.
-
-An early design using separate repositories per project cycle resulted in repeated onboarding, context loss, and high instructional overhead. The redesigned implementation adopts one persistent repository per team across the semester, enabling cumulative iteration, traceability, and efficient capstone evaluation. To reduce cognitive load during complex project work, instruction in GitHub collaboration practices is relocated to a prerequisite Information Engineering course, allowing later courses (such as Business Intelligence) to use the tool naturally without concurrent tool training.
-
-The contribution is framed as an implementation and design paper, focusing on design decisions, trade-offs, assessment mechanisms, and transferability rather than learning-effect claims.
+The paper presents a case describing the use of GitHub Classroom as collaboration and assessment infrastructure in industrial engineering courses. Pull requests are the primary unit of feedback and assessment — making individual contribution, review quality, and responsiveness to feedback visible and assessable.
 
 ---
 
-## Alignment with CDIO Standards
+## Presentation (Quarto RevealJS)
 
-The implementation primarily addresses:
+The slides are built with [Quarto](https://quarto.org/) using a custom HI (University of Iceland) RevealJS theme.
 
-- CDIO Standard 7: Integrated Learning Experiences
-- CDIO Standard 8: Active Learning
-- CDIO Standard 11: Learning Assessment
+To render:
 
-with partial alignment to CDIO Standard 5: Design-Implement Experiences.
+```bash
+quarto render slides.qmd
+```
 
----
+Output: `index.html`
 
-## Repository Contents
+### Structure
 
-- `cdio2026-HelgaIngim-GitHub.tex`
-  -> Main LaTeX source file (inputs `include/body.tex`, `include/stakeholders.tikz`, and `include/rubric.tex`)
-
-- `include/body.tex`
-  -> Paper body (sections and content)
-
-- `include/stakeholders.tikz`
-  -> Workflow diagram figure
-
-- `include/rubric.tex`
-  -> Rubric table
-
-- `references.bib`
-  -> BibLaTeX references
-
-- `cdio.cls`
-  -> CDIO conference class file
-
-- `cdio2026-HelgaIngim-GitHub.pdf`
-  -> Latest compiled paper PDF
-
-- `REVIEWS.md`, `REVIEWS.pdf`
-  -> Acceptance letter and reviewer comments
-
-- `REVISION.md`, `REVISION.pdf`
-  -> Response to reviewers
-
-- `include/by-nc-nd.pdf`
-  -> License figure used in the paper
+| Path | Description |
+|------|-------------|
+| `slides.qmd` | Main presentation source |
+| `index.html` | Rendered presentation |
+| `styles/colors.css` | HI brand colour variables |
+| `styles/hi26-reveal.css` | Base HI RevealJS theme |
+| `styles/cdio2026.css` | Conference-specific overrides |
+| `styles/watermark-inline.css` | Draft watermark (disable for final) |
+| `_extensions/card-enum/` | Lua filter: `.fa-card` and `.card-enum` layouts |
+| `_extensions/hi-title/` | Lua filter: HI title slide shortcode |
+| `_extensions/menti/` | Lua filter: Mentimeter embed shortcode |
+| `_extensions/pause/` | Lua filter: animated pause shortcode |
+| `partials/header-includes.inc` | Font Awesome + Jost font CDN links |
+| `partials/body-after.inc` | Scripts injected after body |
+| `partials/contact-card.html` | Reusable contact card HTML |
+| `scripts/countdown.js` | Countdown timer script |
+| `include/stakeholders.svg` | Inline SVG: Git workflow diagram |
+| `include/vr2.jpg` | Photo used on contact slide |
+| `img/hi/` | HI logos and favicon |
 
 ---
 
-## Build Information
+## Paper (LaTeX)
 
-The paper is compiled using LaTeX with the official `cdio.cls` class file and BibLaTeX (biber backend).
+The paper is compiled with XeLaTeX and BibLaTeX (biber backend).
 
-To compile locally:
+To compile:
 
 ```bash
 xelatex cdio2026-HelgaIngim-GitHub.tex
@@ -85,3 +62,34 @@ biber cdio2026-HelgaIngim-GitHub
 xelatex cdio2026-HelgaIngim-GitHub.tex
 xelatex cdio2026-HelgaIngim-GitHub.tex
 ```
+
+### Structure
+
+| Path | Description |
+|------|-------------|
+| `cdio2026-HelgaIngim-GitHub.tex` | Main LaTeX source |
+| `cdio2026-HelgaIngim-GitHub.pdf` | Compiled paper PDF |
+| `cdio.cls` | CDIO conference class file |
+| `references.bib` | BibLaTeX references |
+| `include/body.tex` | Paper body |
+| `include/rubric.tex` | Assessment rubric table |
+| `include/stakeholders.tikz` | TikZ workflow diagram |
+| `include/by-nc-nd.pdf` | CC BY-NC-ND licence figure |
+
+---
+
+## Review Materials
+
+| Path | Description |
+|------|-------------|
+| `REVIEWS.md` / `REVIEWS.pdf` | Acceptance letter and reviewer comments |
+| `REVISION.md` / `REVISION.pdf` | Response to reviewers |
+
+---
+
+## CDIO Standards Alignment
+
+- **Standard 7** — Integrated Learning Experiences
+- **Standard 8** — Active Learning
+- **Standard 11** — Learning Assessment
+- **Standard 5** — Design-Implement Experiences (partial)

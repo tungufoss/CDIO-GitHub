@@ -1,0 +1,176 @@
+<svg viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg"
+     font-family="Jost, system-ui, sans-serif" font-size="12">
+
+  <defs>
+    <!-- Orange arrowhead marker -->
+    <marker id="arr-orange" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="orange"/>
+    </marker>
+    <!-- Gray dashed arrowhead marker -->
+    <marker id="arr-gray" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- Lane labels -->
+  <text x="148" y="52"  text-anchor="end" fill="#1a1a2e"><tspan font-family="monospace">main:</tspan></text>
+  <text x="148" y="100" text-anchor="end" fill="#1a1a2e"><tspan font-family="monospace">core-work:</tspan></text>
+  <text x="148" y="148" text-anchor="end" fill="#1a1a2e"><tspan font-family="monospace">feat-1:</tspan></text>
+  <text x="148" y="196" text-anchor="end" fill="#1a1a2e"><tspan font-family="monospace">feat-2:</tspan></text>
+
+  <!-- Person icons for lane labels -->
+  <!-- main: two-person group icon -->
+  <g transform="translate(152,40)" fill="#10099f">
+    <circle cx="6" cy="4" r="3.5"/>
+    <path d="M0,16 Q6,9 12,16"/>
+    <circle cx="13" cy="4" r="3"/>
+    <path d="M7,16 Q13,10 19,16"/>
+  </g>
+  <text x="173" y="52" fill="#1a1a2e">ABC</text>
+
+  <!-- single person: core-work -->
+  <g transform="translate(152,88)" fill="#10099f">
+    <circle cx="6" cy="4" r="3.5"/>
+    <path d="M0,16 Q6,9 12,16"/>
+  </g>
+  <text x="166" y="100" fill="#1a1a2e">A</text>
+
+  <!-- single person: feat-1 -->
+  <g transform="translate(152,136)" fill="#10099f">
+    <circle cx="6" cy="4" r="3.5"/>
+    <path d="M0,16 Q6,9 12,16"/>
+  </g>
+  <text x="166" y="148" fill="#1a1a2e">B</text>
+
+  <!-- single person: feat-2 -->
+  <g transform="translate(152,184)" fill="#10099f">
+    <circle cx="6" cy="4" r="3.5"/>
+    <path d="M0,16 Q6,9 12,16"/>
+  </g>
+  <text x="166" y="196" fill="#1a1a2e">C</text>
+
+  <!-- ── Branch lines ─────────────────────────────────────────────────── -->
+
+  <!-- Main branch -->
+  <line x1="195" y1="48" x2="660" y2="48" stroke="#1a1a2e" stroke-width="1.5"/>
+  <circle cx="195" cy="48" r="5" fill="#1a1a2e"/>
+  <circle cx="545" cy="48" r="5" fill="#1a1a2e"/>
+  <circle cx="660" cy="48" r="5" fill="#1a1a2e"/>
+
+  <!-- Labels above main -->
+  <text x="195" y="34" text-anchor="middle" font-size="11" font-style="italic" fill="#555">template</text>
+  <text x="645" y="34" text-anchor="middle" font-size="11" font-style="italic" fill="#555">final result</text>
+
+  <!-- core-work branches from main at template -->
+  <path d="M195,48 C205,65 210,80 220,96" stroke="#1a1a2e" stroke-width="1.5" fill="none"/>
+  <circle cx="220" cy="96" r="5" fill="#1a1a2e"/>
+  <circle cx="295" cy="96" r="5" fill="#1a1a2e"/>
+  <circle cx="365" cy="96" r="5" fill="#1a1a2e"/>
+  <circle cx="430" cy="96" r="5" fill="#1a1a2e"/>
+  <circle cx="490" cy="96" r="5" fill="#1a1a2e"/>
+  <line x1="220" y1="96" x2="490" y2="96" stroke="#1a1a2e" stroke-width="1.5"/>
+
+  <!-- feat-1 (B) branches from core-work -->
+  <path d="M295,96 C305,113 310,128 320,144" stroke="#1a1a2e" stroke-width="1.5" fill="none"/>
+  <circle cx="320" cy="144" r="5" fill="#1a1a2e"/>
+  <circle cx="385" cy="144" r="5" fill="#1a1a2e"/>
+  <line x1="320" y1="144" x2="385" y2="144" stroke="#1a1a2e" stroke-width="1.5"/>
+
+  <!-- feat-1 PR merge → core-work (orange arrow) -->
+  <path d="M385,144 C400,128 415,112 430,96"
+        stroke="orange" stroke-width="3" fill="none"
+        marker-end="url(#arr-orange)"/>
+
+  <!-- feat-2 (C) branches from main -->
+  <path d="M195,48 C202,90 208,160 220,192" stroke="#1a1a2e" stroke-width="1.5" fill="none"/>
+  <circle cx="220" cy="192" r="5" fill="#1a1a2e"/>
+  <circle cx="310" cy="192" r="5" fill="#1a1a2e"/>
+  <circle cx="390" cy="192" r="5" fill="#1a1a2e"/>
+  <circle cx="450" cy="192" r="5" fill="#1a1a2e"/>
+  <line x1="220" y1="192" x2="450" y2="192" stroke="#1a1a2e" stroke-width="1.5"/>
+  <!-- feat-2 PR active segment in orange -->
+  <line x1="310" y1="192" x2="450" y2="192" stroke="orange" stroke-width="3"/>
+  <circle cx="310" cy="192" r="5" fill="orange"/>
+  <circle cx="390" cy="192" r="5" fill="orange"/>
+  <circle cx="450" cy="192" r="5" fill="orange"/>
+
+  <!-- feat-2 PR merge → main (orange arrow) -->
+  <path d="M450,192 C475,150 510,95 545,50"
+        stroke="orange" stroke-width="3" fill="none"
+        marker-end="url(#arr-orange)"/>
+
+  <!-- sync dashed: main → core-work after feat-2 merge -->
+  <path d="M545,48 C548,64 530,82 490,96"
+        stroke="#888" stroke-width="1.5" stroke-dasharray="5,4" fill="none"
+        marker-end="url(#arr-gray)"/>
+  <text x="554" y="74" font-size="10" font-style="italic" fill="#888">sync</text>
+
+  <!-- core-work PR merge → final main (orange arrow) -->
+  <path d="M490,96 C515,78 580,60 655,50"
+        stroke="orange" stroke-width="3" fill="none"
+        marker-end="url(#arr-orange)"/>
+
+  <!-- ── Right-side annotations ─────────────────────────────────────── -->
+
+  <!-- feedback: chalkboard-user icon -->
+  <g transform="translate(672,36)" fill="none" stroke="#555" stroke-width="1">
+    <!-- board rectangle -->
+    <rect x="0" y="0" width="13" height="10" rx="1"/>
+    <!-- board stand legs -->
+    <line x1="3" y1="10" x2="1" y2="15" stroke-width="0.9"/>
+    <line x1="10" y1="10" x2="12" y2="15" stroke-width="0.9"/>
+    <!-- person head -->
+    <circle cx="20" cy="3" r="3" fill="#555" stroke="none"/>
+    <!-- person body -->
+    <line x1="20" y1="6" x2="20" y2="13" stroke="#555" stroke-width="1.2"/>
+    <!-- arm pointing at board -->
+    <line x1="20" y1="9" x2="13" y2="8" stroke="#555" stroke-width="1"/>
+    <!-- other arm -->
+    <line x1="20" y1="9" x2="23" y2="12" stroke="#555" stroke-width="1"/>
+    <!-- legs -->
+    <line x1="20" y1="13" x2="17" y2="18" stroke="#555" stroke-width="1"/>
+    <line x1="20" y1="13" x2="23" y2="18" stroke="#555" stroke-width="1"/>
+  </g>
+  <text x="700" y="50" font-size="11" font-style="italic" fill="#555">feedback</text>
+
+  <!-- review annotations with person icons -->
+  <!-- core-work review: B, C -->
+  <g transform="translate(672,88)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="684" y="100" font-size="11" font-style="italic" fill="#555">B,</text>
+  <g transform="translate(698,88)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="710" y="100" font-size="11" font-style="italic" fill="#555">C</text>
+  <text x="670" y="100" font-size="11" font-style="italic" fill="#555">review:</text>
+
+  <!-- feat-1 review: A, C -->
+  <text x="670" y="148" font-size="11" font-style="italic" fill="#555">review:</text>
+  <g transform="translate(712,136)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="724" y="148" font-size="11" font-style="italic" fill="#555">A,</text>
+  <g transform="translate(738,136)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="750" y="148" font-size="11" font-style="italic" fill="#555">C</text>
+
+  <!-- feat-2 review: A, B -->
+  <text x="670" y="196" font-size="11" font-style="italic" fill="#555">review:</text>
+  <g transform="translate(712,184)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="724" y="196" font-size="11" font-style="italic" fill="#555">A,</text>
+  <g transform="translate(738,184)" fill="#10099f">
+    <circle cx="5" cy="3" r="3"/>
+    <path d="M0,13 Q5,7 10,13"/>
+  </g>
+  <text x="750" y="196" font-size="11" font-style="italic" fill="#555">B</text>
+
+</svg>
