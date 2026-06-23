@@ -8,29 +8,15 @@ presenters:
   - name: "Dr. Helga Ingimundardóttir"
     hi-username: "helgaingim"
     orcid: "0000-0002-2780-3546"
+    github: "tungufoss"
 subtitle-position: below
 event-meta: "22<sup>nd</sup> International CDIO Conference"
 event-date: "June 24<sup>th</sup>, 2026"
 format:
   revealjs:
-    theme: white
-    transition: slide
-    background-transition: fade
-    hash: true
-    controls: true
-    controls-layout: edges
-    controls-back-arrows: visible
-    slide-number: true
-    progress: true
-    title-slide: false
-    width: 1280
-    height: 720
-    margin: 0.04
+    theme: styles/hi.scss
     css:
-      - styles/colors.css
-      - styles/hi26-reveal.css
-      - styles/cdio2026.css
-      - styles/watermark-inline.css
+      - styles/watermark.css
     filters:
       - _extensions/hi-title/hi-title.lua
       - _extensions/card-enum/card-enum.lua
@@ -38,6 +24,13 @@ format:
     footer: "22<sup>nd</sup> International CDIO Conference · Helga Ingimundardóttir · helgaingim@hi.is"
     include-in-header: partials/header-includes.inc
     include-after-body: partials/body-after.inc
+    slide-number: true
+    show-slide-number: speaker
+    controls: true
+    transition: none
+    background-transition: none
+    width: 1280
+    height: 720
 ---
 
 {{< hi-title >}}
@@ -376,8 +369,8 @@ but they are explicitly shown what will be expected in a more *refined, final ve
 - user-check | **Individual-level** | | * visible contributions | * review quality | * responsiveness to feedback
 :::
 
-::: {.fa-card cols=1}
-- scale-balanced | **Design goal** | accountability without fragmenting teamwork
+::: {.statement}
+Design goal: **accountability without fragmenting teamwork**
 :::
 
 ::: {.notes}
@@ -471,7 +464,7 @@ And that comes from the *assessment structure*, not the specific subject matter.
 
 ---
 
-## Questions? {.contact-slide}
+## Questions? {.focus-slide}
 
 ::: {.two-col}
 ::: {.col}
@@ -479,9 +472,7 @@ And that comes from the *assessment structure*, not the specific subject matter.
 :::
 
 ::: {.col}
-```{=html}
-{{< include partials/contact-card.html >}}
-```
+{{< contact-card >}}
 :::
 :::
 
@@ -512,3 +503,4 @@ The idea is to make process and feedback visible — the same logic can apply el
 No — GitHub is the *enabler*.
 The contribution is the *assessment architecture*.
 :::
+
