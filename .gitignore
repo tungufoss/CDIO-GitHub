@@ -46,7 +46,7 @@
 
 # Quarto preview logs
 quarto-preview*.log
-index.html
-slides_files/
+/index.html
+/slides_files/
 /.quarto/
 **/*.quarto_ipynb
