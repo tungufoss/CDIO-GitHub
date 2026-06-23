@@ -39,4 +39,10 @@
 *.pdf
 
 # IDE
-.idea 
+.idea
+
+# Claude Code
+.claude/
+
+# Quarto preview logs
+quarto-preview*.log 
