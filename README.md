@@ -33,7 +33,7 @@ Ingimundardóttir, H. (2026). Using pull requests to make collaboration visible 
 
 ## Build
 
-**Slides:**
+**Slides** (output goes to `docs/index.html`, served by GitHub Pages from `/docs`):
 ```bash
 quarto render slides.qmd
 ```
