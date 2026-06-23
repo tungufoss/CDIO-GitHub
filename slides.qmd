@@ -35,148 +35,57 @@ format:
 
 {{< hi-title >}}
 
----
-
-## Motivation
-
-::: {.fa-card cols=1}
-- building-columns | **Project-based courses** | Assessment often prioritizes final artifacts, limiting visibility into collaboration, reasoning, and responsiveness to feedback
-- [brands] github | **Professional practice** | Modern technical work relies on version control, peer review, and documented iteration — skills students are expected to use immediately in the workforce
-- scale-balanced | **Assessment misalignment** | What we value in learning is not always what we can currently observe
-:::
-
 ::: {.notes}
-Project-based courses are widely used — and we care about *collaboration*, *reasoning*, and *responsiveness to feedback*.
+I'm **Helga Ingimundardóttir** from the **University of Iceland** — this is the second of two talks this week.
 
-But in practice, assessment still prioritizes *final artifacts* — reports, code, presentations.
-
-At the same time, professional work is inherently *collaborative* and *iterative*.
-
-Version control, peer review, and documented iteration are not optional — they are core practice.
-
-So the tension is this — what we value in learning is not always what we can actually *observe and assess*.
+- **Yesterday**: why we redesigned a Business Intelligence course and what the design looks like
+- **Today**: the *technical side* — how **pull requests** function as assessment infrastructure
+- Relevant if you do **project-based** or **team** courses where collaboration matters
 :::
 
 ---
 
-## Framing the problem
+## The problem: collaboration is invisible
 
 ::: {.fa-card cols=1}
-- dumbbell | **Core question** | How can collaboration, accountability, and responsiveness to feedback be made _visible and assessable_ in team-based projects?
-:::
-
-[Three persistent challenges stand in the way:]{.lean-in}
-
-::: {.fa-card cols=3}
 - file-circle-xmark | **Final deliverables hide process** | Who did what, how decisions were made, and how feedback was handled is invisible in the final product
 - eye-slash | **Peer interaction is difficult to audit** | Retrospective reconstruction of who reviewed, commented, or contributed is unreliable
 - rotate-left | **Feedback resets instead of accumulating** | Each assignment starts from scratch — prior issues are not carried forward
 :::
 
 ::: {.notes}
-This leads to the core question —
+Project-based courses are widely used in CDIO — and we care about **collaboration**, **reasoning**, and **responsiveness to feedback**.
 
-How do we make *collaboration*, *accountability*, and *responsiveness to feedback* visible and assessable?
+But in practice, assessment still prioritizes **final artifacts** — reports, code, presentations.
 
-In team projects, the final deliverable hides most of what matters — who did what, how decisions were made, and how feedback was handled.
+- The final deliverable **hides** most of what matters
+- Peer interaction is **impossible to reconstruct** after the fact
+- Feedback **resets** between tasks instead of building up
 
-Peer interaction is difficult to reconstruct after the fact — and feedback often *resets* instead of accumulating.
-
-So the issue is not lack of activity — it is lack of *visibility*.
+The issue is not lack of activity — it is lack of **visibility**.
 :::
 
 ---
 
-## Learning with professional collaboration tools
+## Why pull requests
 
 ::: {.fa-card cols=1}
-- toolbox | **Not just another tool** | Git/GitHub is an industry-standard collaboration infrastructure used across software, data science, and engineering teams
-- repeat | **Version control, review, reproducibility** | Supports structured iteration, peer review, and documented handover — the core of professional technical work
-- face-grin-stars | **Directly transferable** | Students practice skills they will immediately use — and can credibly list on their CV
+- code-pull-request | **What a PR is** | A structured proposal to change shared work: rationale, peer review, discussion, and explicit approval before merging
+- magnifying-glass | **Why it matters for assessment** | | * reasoning becomes **visible** | * contribution becomes **attributable** | * critique is **captured** | * responses to feedback are **auditable**
+- [brands] github | **Directly transferable** | Industry-standard workflow — students practice what they will immediately use after graduation
 :::
 
 ::: {.notes}
-The approach is to use professional collaboration tools — not as an add-on, but as part of the learning environment.
+A **pull request** — PR — is a structured proposal to change shared work.
 
-Git and GitHub are widely used across technical fields.
+It includes a **rationale**, gets **reviewed and discussed**, and is **explicitly approved** before merging.
 
-They support *version control*, *peer review*, and *reproducibility*.
+- Reasoning becomes **visible** in the PR description
+- Contributions are **attributable** — you can see who did what
+- Critique is **captured** in review comments
+- Responses to feedback are **auditable** over time
 
-Importantly, these are skills students are expected to use immediately after graduation.
-
-So this is not just about authenticity — it is about *transfer*.
-Students practice what they will actually use.
-:::
-
----
-
-## Minimal GitHub concepts
-
-[needed for assessment]{.slide-subtitle}
-
-::: {.fa-card cols=1}
-- database | **Repository** | A shared workspace containing code, data, documentation, and history — the persistent home for all project work
-- code-pull-request | **Pull Request (PR)** | A structured proposal to change shared work: | * rationale and scope | * peer review and discussion | * explicit approval and merge decision
-- key | **Key idea** | PRs bind technical change to collaborative process — making both visible and traceable
-:::
-
-::: {.notes}
-Briefly aligning terminology —
-
-A repository is a shared workspace containing code, data, and history.
-
-A pull request — or PR — is a structured proposal to change shared work.
-
-It includes a rationale, and is reviewed, discussed, and approved before merging.
-
-The key idea is that PRs bind *technical change* to *collaborative process*.
-:::
-
----
-
-## Design rationale
-
-::: {.fa-card cols=1}
-- compass-drafting | **Starting point** | | * CDIO-aligned | * assessment as development | * observable collaboration
-- key | **Design claim** | PRs are not a tooling detail — they are \_assessment infrastructure\_ | ~ [comments] feedback + [rotate] iteration ⟹ [medal] competence
-:::
-
-::: {.notes}
-The design is CDIO-aligned and treats assessment as a *developmental process*.
-
-The focus is on *observable collaboration*, not just outcomes.
-
-The central claim is that pull requests are not just a tool — but can function as *assessment infrastructure*.
-
-They make feedback and iteration visible — and over time this supports competence development.
-:::
-
----
-
-## Why pull requests matter
-
-::: {.two-col}
-::: {.fa-card cols=1}
-- database | **Repository** | A shared workspace containing code, data, documentation, and history
-- code-pull-request | **Pull Request (PR)** | A structured proposal with rationale, peer review, discussion, and explicit approval before merging
-:::
-
-::: {.fa-card cols=1}
-- magnifying-glass | **Why it matters for assessment** | | * Reasoning becomes visible | * contribution becomes attributable | * critique is captured | * responses to feedback are auditable
-- lightbulb | **Reframing** | PRs expose the learning process — not just the final product
-:::
-:::
-
-::: {.notes}
-A PR naturally contains what we want to assess —
-
-rationale, critique, discussion, and decisions.
-
-This means reasoning becomes *visible*,
-contributions become *attributable*,
-and responses to feedback become *auditable*.
-
-So the reframing is simple — PRs expose the learning process.
+And critically — this is **industry-standard practice**. Students are not learning a course tool; they are learning the workflow they will use on day one.
 :::
 
 ---
@@ -266,16 +175,16 @@ So the reframing is simple — PRs expose the learning process.
 ```
 
 ::: {.notes}
-We define specific required practices.
+We define **specific required practices** — not just "use GitHub."
 
-Students submit focused PRs, receive at least two *substantive* reviews,
-and respond explicitly to all comments.
+- **Focused PRs** with clear intent
+- At least **two substantive reviews** — actionable feedback, not just approval
+- **Explicit responses** to all comments
+- **Merge only after review**
 
-Substantive means actionable feedback — not just superficial approval.
+Assessment then uses observable evidence: **authorship**, **critique depth**, **follow-up**, **handover quality**.
 
-Assessment then uses observable evidence — authorship, critique, follow-up, and handover.
-
-So assessment shifts from hidden process to *visible artifacts*.
+The diagram shows a real structure: three students, feature branches, **orange arrows are PRs** — each merge is a reviewable, traceable event.
 :::
 
 ---
@@ -285,18 +194,19 @@ So assessment shifts from hidden process to *visible artifacts*.
 [_across courses_]{.slide-subtitle}
 
 ::: {.fa-card cols=2}
-- user | **Information Engineering (IE)** | | * 20–25 students, 6–7 small teams | * early undergraduate | * new repository each cycle | * focus: learning the tools
-- user-graduate | **Business Intelligence (BI)** | | * 10–15 students, 2 large teams | * assumes GitHub fluency | * single persistent repository | * focus: tooling supports advanced project work
+- user | **Information Engineering (IE)** | | * 20–25 students, 6–7 small teams | * early undergraduate | * new repository each cycle | * focus: **learning the tools**
+- user-graduate | **Business Intelligence (BI)** | | * 10–15 students, 2 large teams | * assumes GitHub fluency | * single persistent repository | * focus: **tooling supports advanced project work**
 :::
 
 ::: {.notes}
-This is implemented across two courses.
+This is implemented across **two courses** with a deliberate progression.
 
-In Information Engineering, the focus is learning the tools — small teams, repeated practice, new repositories.
+- In **Information Engineering**: focus is learning the tools — small teams, repeated practice, new repositories each cycle
+- In **Business Intelligence**: students are assumed fluent — **one persistent repository** across the entire semester
 
-In Business Intelligence, students are assumed fluent — one persistent repository across the semester.
+So there is progression — from **learning the workflow** to using it as **infrastructure** for something more ambitious.
 
-So there is progression — from learning the workflow to using it as *infrastructure*.
+This is important: you don't want students spending cognitive load on Git when they should be focused on the domain problem.
 :::
 
 ---
@@ -305,23 +215,20 @@ So there is progression — from learning the workflow to using it as *infrastru
 
 ::: {.fa-card cols=2}
 - arrows-rotate | **Cumulative assessment** | | * unresolved PR comments remain active | * later work is checked against prior feedback | * capstone evaluation includes earlier issues
-- bullseye | **Effect** | | * continuity | * accountability | * coherence | * less fragmentation across assignments
+- bullseye | **Effect** | | * continuity across assignments | * accountability — issues can't be ignored | * coherence in the final product | * mirrors professional practice
 :::
 
 ::: {.notes}
-When teams are working with a single, persistent repository, feedback can carry forward — it doesn't reset between assignments.
+When teams work with a **single persistent repository**, feedback doesn't reset between assignments — it **carries forward**.
 
-If an issue is raised in a pull request and not resolved, it remains visible in the repository.
+- An unresolved PR comment **stays visible** in the repository
+- Later work is evaluated in light of **earlier feedback**
+- The capstone includes **everything** — students cannot simply move on
 
-Later work is then evaluated in light of that earlier feedback — including in the capstone.
+This creates **accountability** and **continuity** — much closer to how professional work actually operates.
 
-So feedback accumulates over time rather than fragmenting across tasks.
-
-This creates *continuity* and *accountability*.
-
-Students cannot simply move on — they have to revisit and resolve issues.
-
-And that is much closer to professional practice.
+- Students cannot polish a submission in isolation and hand it in
+- They have to **revisit and resolve** — and that revision is itself assessable
 :::
 
 ---
@@ -338,128 +245,45 @@ And that is much closer to professional practice.
 </div>
 
 ::: {.fa-card cols=2}
-- arrow-trend-up | **Calibration** | | * levels: developmental → outstanding | * same dimensions, increasing expectations | * signals what Capstone requires
+- arrow-trend-up | **Calibration** | | * same dimensions, increasing expectations | * signals what Capstone requires | * early grading normalized to "very good"
 - chart-line | **Observed trend** | | * GitHub usage improved over repeated cycles | * teamwork & participation improved more strongly
 :::
 
 ::: {.notes}
-To clarify the rubric design —
+This is a design case, not a controlled study — but the **signal is consistent** across cycles.
 
-The GitHub usage and teamwork dimensions are *shared across both courses*.
-Early on, we are deliberately *lenient* — students are still learning the workflow.
+- The **GitHub usage** and **teamwork** dimensions are shared across both courses
+- Early on, grading is **deliberately lenient** — students are still learning the workflow
+- We observe improvement in GitHub use and **stronger improvement in teamwork and participation**
 
-We observe improvement in GitHub use and stronger improvement in teamwork and participation.
-Qualitatively, PRs become more focused, better documented, and more responsive.
+Qualitatively: PRs become **more focused**, **better documented**, and **more responsive** over the semester.
 
-In the BI course, each thematic module also has its own rubric —
-and these are *reused directly in the capstone*.
-
-During the learning phase, grading is *normalized to "very good"*.
-So students are not penalized for early-stage work —
-
-but they are explicitly shown what will be expected in a more *refined, final version*.
+The rubric also does something important — students see **exactly what the capstone will require** from week one. No surprises.
 :::
 
 ---
 
-## Team and individual accountability
+## What this makes visible
 
-::: {.fa-card cols=2}
-- users | **Team-level** | | * analytical quality | * coherence | * shared responsibility for outcomes
-- user-check | **Individual-level** | | * visible contributions | * review quality | * responsiveness to feedback
-:::
-
-::: {.statement}
-Design goal: **accountability without fragmenting teamwork**
-:::
-
-::: {.notes}
-A common concern is balancing team and individual assessment.
-
-Team-level outcomes still matter — quality and coherence.
-
-But individual contribution becomes visible through artifacts — commits, reviews, and discussion.
-
-The goal is *accountability* without breaking *collaboration*.
-:::
-
----
-
-## Key shifts in practice
+<span class="slide-subtitle">Transferable principles for CDIO-aligned, project-based courses.</span>
 
 ::: {.fa-card cols=3}
-- shield-halved | **Quality** | Iteration vs. reviewable work
-- users | **Collaboration** | Implicit teamwork vs. explicit review
-- laptop-code | **Workflow** | Informal work vs. structured process
-:::
-
-::: {.fa-card cols=1}
-- lightbulb | **Takeaway** | Making collaboration visible turns implicit practices into something we can teach and assess
-:::
-
-::: {.notes}
-What PR-based workflows do is make collaboration practices *explicit*.
-
-Students are not used to reviewing each other's work critically.
-That's not a problem — it's something we need to *teach and normalize*.
-
-Similarly, work becomes visible much earlier.
-Students can no longer rely on polishing something at the end — they have to produce work that can be reviewed along the way.
-
-And the workflow itself introduces structure.
-That can feel like overhead, but it is also what enables learning — especially around collaboration and feedback.
-
-So rather than thinking of these as problems or tensions,
-they are *practices becoming visible* — and therefore teachable.
-:::
-
----
-
-## Limitations and next steps
-
-::: {.fa-card cols=2}
-- lock | **Boundary conditions** | | * design-oriented, not experimental | * depends on student readiness | * larger cohorts require more coordination
-- arrow-trend-up | **Next iterations** | | * extend to more courses | * structured team-building to accelerate trust | * refined review calibration
+- [hi-teal] eye | **Visible process** | Collaboration, reasoning, and iteration are observable — not just the final product
+- [hi-teal] arrows-rotate | **Cumulative feedback** | Unresolved issues stay visible — feedback accumulates instead of resetting
+- [hi-teal] user-check | **Individual accountability** | Contributions are attributable without fragmenting teamwork
+- [hi-teal] laptop-code | **Professional workflow** | Students practice industry-standard tools in routine coursework — directly transferable
+- [hi-teal] shield | **Credibility** | Reproducible, documented work builds trust with industry partners
+- [hi-teal] screwdriver-wrench | **Assessment architecture** | This is a design choice, not a tool choice — the structure comes first
 :::
 
 ::: {.notes}
-There is definitely some initial overhead — especially around learning the workflow and review practices.
+These six principles apply **beyond software and data courses** — the domain matters less than the design.
 
-Students are not used to this level of structure or visibility.
+- Students often find this **uncomfortable at first** — reviewing peers, documenting work, responding to feedback is unfamiliar
+- But graduates say it's where they **learned the most** — because the hands-on experience is real
+- Critical feedback and visible work: better to encounter them first **in a course** than on the job
 
-It also depends on readiness — this works much better once basic tooling is already in place.
-
-And scaling requires coordination, particularly around review quality.
-
-So this is not a drop-in solution — it needs to be designed into the course.
-:::
-
----
-
-## Conclusions
-
-::: {.fa-card cols=1}
-- flag-checkered | **Key takeaway** | PR-based assessment makes collaboration, accountability, and responsiveness to feedback visible and assessable
-- arrow-right | **Assessment shifts** | | * from final products to visible process | * feedback carries forward instead of resetting | * students practice professional collaboration in routine coursework
-- lightbulb | **Contribution** | This is an assessment architecture, not just a tool choice
-:::
-
-::: {.notes}
-The key takeaway is that making collaboration visible fundamentally changes what we can assess.
-
-There is an initial overhead — students don't always enjoy the structure at first.
-Reviewing peers, documenting work, responding to feedback — this is unfamiliar and effortful.
-
-But over time, the quality of work improves significantly.
-Work becomes more structured, better justified, and more coherent.
-
-And importantly, students recognize this afterwards.
-Many of them explicitly say that this is where they learned the most — not just the content, but how to actually work.
-
-So the impact is not just in what they produce —
-it's in how they approach collaboration, feedback, and responsibility.
-
-And that comes from the *assessment structure*, not the specific subject matter.
+The contribution here is an **assessment architecture** — not a tool recommendation.
 :::
 
 ---
@@ -467,40 +291,23 @@ And that comes from the *assessment structure*, not the specific subject matter.
 ## Questions? {.focus-slide}
 
 ::: {.two-col}
-::: {.col}
+::: {}
 ![](include/vr2.jpg){.contact-photo}
 :::
 
-::: {.col}
-{{< contact-card >}}
+::: {}
+```{=html}
+{{< include partials/contact-card.html >}}
+```
 :::
 :::
 
 ::: {.notes}
-A few questions that often come up —
+Happy to take questions — a few that often come up:
 
-*Isn't this a lot of overhead?*
-Yes — there is initial overhead.
-But it decreases quickly, and the payoff is that assessment becomes much easier and more transparent later.
-
-*What about students with no GitHub experience?*
-We scaffold this earlier in the curriculum.
-In later courses, we assume fluency so the tooling does not dominate the learning.
-
-*Does this scale?*
-It can scale, but requires coordination — especially around review practices.
-The visibility actually helps manage larger groups.
-
-*How do you ensure fairness in team assessment?*
-Individual contributions are visible through PRs, reviews, and discussion.
-So we don't rely only on peer evaluation — we have *artifact-based evidence*.
-
-*Is this specific to software or data courses?*
-The tooling is domain-specific, but the principle is not.
-The idea is to make process and feedback visible — the same logic can apply elsewhere.
-
-*Is this just about GitHub?*
-No — GitHub is the *enabler*.
-The contribution is the *assessment architecture*.
+- *Isn't this a lot of overhead?* — Yes, initially. But it **decreases quickly** and assessment becomes much easier and more transparent
+- *What about students with no GitHub experience?* — We **scaffold earlier** in the curriculum; in later courses we assume fluency
+- *Does this scale?* — It can, but requires **coordination around review quality**; the visibility actually helps manage larger groups
+- *Is this just about GitHub?* — No. GitHub is the **enabler**. The contribution is the **assessment architecture**
+- Yesterday's talk (**Session 8A**) covers the course design side — **industry engagement**, TBL structure, and rubric design
 :::
-
