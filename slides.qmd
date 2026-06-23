@@ -45,12 +45,16 @@ I'm **Helga Ingimundardóttir** from the **University of Iceland** — this is t
 
 ---
 
-## The problem: collaboration is invisible
+## The problem
 
 ::: {.fa-card cols=1}
 - file-circle-xmark | **Final deliverables hide process** | Who did what, how decisions were made, and how feedback was handled is invisible in the final product
 - eye-slash | **Peer interaction is difficult to audit** | Retrospective reconstruction of who reviewed, commented, or contributed is unreliable
 - rotate-left | **Feedback resets instead of accumulating** | Each assignment starts from scratch — prior issues are not carried forward
+:::
+
+::: {.callout}
+The issue is not lack of activity — it is lack of **visibility**.
 :::
 
 ::: {.notes}
@@ -71,7 +75,7 @@ The issue is not lack of activity — it is lack of **visibility**.
 
 ::: {.fa-card cols=1}
 - code-pull-request | **What a PR is** | A structured proposal to change shared work: rationale, peer review, discussion, and explicit approval before merging
-- magnifying-glass | **Why it matters for assessment** | | * reasoning becomes **visible** | * contribution becomes **attributable** | * critique is **captured** | * responses to feedback are **auditable**
+- magnifying-glass | **Why it matters for assessment** | | * reasoning becomes **visible** in the PR description | * contribution becomes **attributable** — commits and reviews are signed | * critique is **captured** in review comments | * responses to feedback are **auditable** over time
 - [brands] github | **Directly transferable** | Industry-standard workflow — students practice what they will immediately use after graduation
 :::
 
@@ -81,7 +85,7 @@ A **pull request** — PR — is a structured proposal to change shared work.
 It includes a **rationale**, gets **reviewed and discussed**, and is **explicitly approved** before merging.
 
 - Reasoning becomes **visible** in the PR description
-- Contributions are **attributable** — you can see who did what
+- You can see **who did what** and when
 - Critique is **captured** in review comments
 - Responses to feedback are **auditable** over time
 
@@ -194,8 +198,12 @@ The diagram shows a real structure: three students, feature branches, **orange a
 [_across courses_]{.slide-subtitle}
 
 ::: {.fa-card cols=2}
-- user | **Information Engineering (IE)** | | * 20–25 students, 6–7 small teams | * early undergraduate | * new repository each cycle | * focus: **learning the tools**
-- user-graduate | **Business Intelligence (BI)** | | * 10–15 students, 2 large teams | * assumes GitHub fluency | * single persistent repository | * focus: **tooling supports advanced project work**
+- user | **Information Engineering (IE)** | mandatory in Industrial Engineering | * 20–25 students, 6–7 small teams | * 2nd year undergraduate | * new repository each cycle | * focus: **learning the tools**
+- user-graduate | **Business Intelligence (BI)** | elective in Industrial Engineering & Data Science | * 10–15 students, 2 large teams | * 3rd year undergrad & 1st year masters | * single persistent repository | * focus: **tooling supports advanced project work**
+:::
+
+::: {.callout}
+From **learning the workflow** to using it as **infrastructure** for something more ambitious.
 :::
 
 ::: {.notes}
@@ -204,8 +212,6 @@ This is implemented across **two courses** with a deliberate progression.
 - In **Information Engineering**: focus is learning the tools — small teams, repeated practice, new repositories each cycle
 - In **Business Intelligence**: students are assumed fluent — **one persistent repository** across the entire semester
 
-So there is progression — from **learning the workflow** to using it as **infrastructure** for something more ambitious.
-
 This is important: you don't want students spending cognitive load on Git when they should be focused on the domain problem.
 :::
 
@@ -213,27 +219,28 @@ This is important: you don't want students spending cognitive load on Git when t
 
 ## Feedback carry-forward
 
+[_Business Intelligence — where GitHub becomes assessment infrastructure_]{.slide-subtitle}
+
 ::: {.fa-card cols=2}
 - arrows-rotate | **Cumulative assessment** | | * unresolved PR comments remain active | * later work is checked against prior feedback | * capstone evaluation includes earlier issues
 - bullseye | **Effect** | | * continuity across assignments | * accountability — issues can't be ignored | * coherence in the final product | * mirrors professional practice
 :::
 
 ::: {.notes}
-When teams work with a **single persistent repository**, feedback doesn't reset between assignments — it **carries forward**.
+With a **single persistent repository**, feedback doesn't reset — it **carries forward**.
 
-- An unresolved PR comment **stays visible** in the repository
-- Later work is evaluated in light of **earlier feedback**
+- Unresolved PR comments **stay visible** — later work is evaluated against them
 - The capstone includes **everything** — students cannot simply move on
-
-This creates **accountability** and **continuity** — much closer to how professional work actually operates.
-
-- Students cannot polish a submission in isolation and hand it in
 - They have to **revisit and resolve** — and that revision is itself assessable
+
+Much closer to how professional work actually operates.
 :::
 
 ---
 
 ## Indicative evidence
+
+[_Rubric shared across both IE and BI_]{.slide-subtitle}
 
 <div class="rubric-table">
 
@@ -250,15 +257,11 @@ This creates **accountability** and **continuity** — much closer to how profes
 :::
 
 ::: {.notes}
-This is a design case, not a controlled study — but the **signal is consistent** across cycles.
+Design case, not a controlled study — but the **signal is consistent**.
 
-- The **GitHub usage** and **teamwork** dimensions are shared across both courses
-- Early on, grading is **deliberately lenient** — students are still learning the workflow
-- We observe improvement in GitHub use and **stronger improvement in teamwork and participation**
-
-Qualitatively: PRs become **more focused**, **better documented**, and **more responsive** over the semester.
-
-The rubric also does something important — students see **exactly what the capstone will require** from week one. No surprises.
+- Early grading is **deliberately lenient** — students are still learning the workflow
+- Over cycles: GitHub use improves, **teamwork improves more strongly**
+- Students see the **capstone rubric from week one** — no surprises
 :::
 
 ---
@@ -276,14 +279,17 @@ The rubric also does something important — students see **exactly what the cap
 - [hi-teal] screwdriver-wrench | **Assessment architecture** | This is a design choice, not a tool choice — the structure comes first
 :::
 
+::: {.fa-card cols=3}
+- graduation-cap | **Transferable** | The same logic applies to any project-based course where collaboration matters
+- face-frown | **Uncomfortable by design** | Reviewing peers, documenting work, responding to feedback — unfamiliar at first
+- heart | **Valued after completion** | Graduates say it's where they learned the most — the hands-on experience is real
+:::
+
 ::: {.notes}
-These six principles apply **beyond software and data courses** — the domain matters less than the design.
+These principles apply **beyond software and data courses** — the domain matters less than the design.
 
-- Students often find this **uncomfortable at first** — reviewing peers, documenting work, responding to feedback is unfamiliar
-- But graduates say it's where they **learned the most** — because the hands-on experience is real
-- Critical feedback and visible work: better to encounter them first **in a course** than on the job
-
-The contribution here is an **assessment architecture** — not a tool recommendation.
+- Better to encounter **critical feedback and visible work** first in a course than on the job
+- The contribution is an **assessment architecture** — not a tool recommendation
 :::
 
 ---
@@ -303,11 +309,10 @@ The contribution here is an **assessment architecture** — not a tool recommend
 :::
 
 ::: {.notes}
-Happy to take questions — a few that often come up:
 
 - *Isn't this a lot of overhead?* — Yes, initially. But it **decreases quickly** and assessment becomes much easier and more transparent
 - *What about students with no GitHub experience?* — We **scaffold earlier** in the curriculum; in later courses we assume fluency
 - *Does this scale?* — It can, but requires **coordination around review quality**; the visibility actually helps manage larger groups
 - *Is this just about GitHub?* — No. GitHub is the **enabler**. The contribution is the **assessment architecture**
-- Yesterday's talk (**Session 8A**) covers the course design side — **industry engagement**, TBL structure, and rubric design
+- Yesterday's talk (**Session 8A**) covers the course design side — **industry engagement**, TBL structure, and reasoning for redesign
 :::
